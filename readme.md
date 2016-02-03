@@ -30,10 +30,14 @@ Here are some links to some methods that may help you. They are not required. Yo
 
 ### Bonus (Lvl. 2)
 
-* Create a menu that shows up when you start and win/lose the game. [Inspiration](https://gieseanw.files.wordpress.com/2010/03/hangman_banner.jpg?w=900&h=424).
+* Create a menu that shows up when you start and win/lose the game. [Inspiration](https://gieseanw.files.wordpress.com/2010/03/hangman_banner.jpg?w=900&h=424). See below for a sample menu...
 
 ```text
-# Insert text here
+Welcome to Hangman!
+
+1. Play Game
+2. Help / How To Play
+3. Quit
 ```
 
 ### Bonus (Lvl. 3)
