@@ -17,7 +17,7 @@ Your game show exhibit the following functionality...
 * When the player guesses the entire word, the game ends.
 * When `incorrectGuesses` reaches a max value (to be determined by you), the game ends.
 
-### Helpful Resources
+## Helpful Resources
 
 Here are some links to some methods that may help you. They are not required. You can complete this exercise without using any -- well, most -- of these.
 
@@ -47,11 +47,13 @@ Here are some links to some methods that may help you. They are not required. Yo
   "abc".match(/d/) // => null
   ```
 
-### Bonus (Lvl. 1)
+## Bonuses
+
+#### Lvl. 1
 
 * Allow the user to play again after win/loss without refreshing the page.
 
-### Bonus (Lvl. 2)
+#### Lvl. 2
 
 * Create a menu that shows up when you start and win/lose the game. In the below example, if the user inputs `1`, the game begins. If the user inputs `3`, the game closes.
 
@@ -63,7 +65,7 @@ Welcome to Hangman!
 3. Quit
 ```
 
-### Bonus (Lvl. 3)
+#### Lvl. 3
 
 * Draw ASCII art to represent guesses remaining with an actual hangman. Some inspiration...
 
