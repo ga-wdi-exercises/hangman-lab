@@ -5,7 +5,7 @@ You might find it helpful to instantiate the following values in your game. Keep
 * `guesses`: an array that contains the letters guessed by the user.
 * `incorrectGuesses`: a number that represents the number of incorrect guesses made.
 
-Your game show exhibit the following functionality...
+Your game should exhibit the following functionality...
 * When the game starts, your are prompted to enter a word.
 * After every turn, the word should be displayed to the user. Unguessed letters should be represented by a `-`, while correctly guessed characters should be represented by the actual character.
 * When the player correctly guesses a letter, the corresponding `-`'s should be replaced with the actual letter.
