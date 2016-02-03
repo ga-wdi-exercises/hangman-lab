@@ -1,8 +1,7 @@
-console.log("welcome to hangman");
 var word = prompt("Please enter your secret word").toLowerCase();
 var guesses = [];
+var incorrectGuessLimit = 6;
 
-console.log(convertWordToDashes(word))
 function convertWordToDashes(word){
   var letters = word.split("");
   var dashes = "";
@@ -18,16 +17,13 @@ function convertWordToDashes(word){
 
 function guess(letter){
   if(guesses.includes(letter)){
-    console.log("you already guessed " + letter);
+    alert("you already guessed " + letter);
     return;
   }
-  console.log("")
-  console.log("you guessed: " + letter)
   guesses.push(letter);
-  console.log(convertWordToDashes(word));
-  var incorrectGuesses =countIncorrectGuesses(word, guesses);
-  console.log( 6 -  incorrectGuesses + " guesses remaining");
-  if(incorrectGuesses == 6){
+  var incorrectGuesses = countIncorrectGuesses(word, guesses);
+  alert("you guessed: " + letter + "\n" + convertWordToDashes(word) + "\n" +  (incorrectGuessLimit -  incorrectGuesses + " guesses remaining"));
+  if(incorrectGuesses == incorrectGuessLimit){
     alert("Game Over! You lose :(")
   }
   if(!convertWordToDashes(word).match(/-/)){
@@ -38,9 +34,13 @@ function guess(letter){
 function countIncorrectGuesses(word, guesses){
   return guesses.filter(function(l){
     return !word.match(l);
-  }).length
+  }).length;
 }
 
-while(countIncorrectGuesses(word, guesses) != 6 || !convertWordToDashes(word).match(/-/)){
-  guess(prompt("Guess a letter"))
+while(countIncorrectGuesses(word, guesses) != incorrectGuessLimit){
+  if(convertWordToDashes(word).match(/-/)){
+    guess(prompt(convertWordToDashes(word) + "\nGuess a letter"));
+  }else{
+    break;
+  }
 }
