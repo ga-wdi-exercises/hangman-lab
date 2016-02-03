@@ -53,7 +53,7 @@ Here are some links to some methods that may help you. They are not required. Yo
 
 ### Bonus (Lvl. 2)
 
-* Create a menu that shows up when you start and win/lose the game. [Inspiration](https://gieseanw.files.wordpress.com/2010/03/hangman_banner.jpg?w=900&h=424). See below for a sample menu...
+* Create a menu that shows up when you start and win/lose the game. In the below example, if the user inputs `1`, the game begins. If the user inputs `3`, the game closes.
 
 ```text
 Welcome to Hangman!
@@ -65,4 +65,15 @@ Welcome to Hangman!
 
 ### Bonus (Lvl. 3)
 
-* Draw ASCII art to represent guesses remaining with an actual hangman.
+* Draw ASCII art to represent guesses remaining with an actual hangman. Some inspiration...
+
+```text
+_______
+|/      |
+|      (_)
+|      \|/
+|       |
+|      / \
+|
+|___
+```
