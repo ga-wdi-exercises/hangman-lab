@@ -54,7 +54,7 @@ Welcome to Hangman!
 3. Quit
 ```
 
-  #### Lvl. 3
+#### Lvl. 3
 
 * Draw ASCII art to represent guesses remaining with an actual hangman. Some inspiration...
 
