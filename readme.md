@@ -17,7 +17,7 @@ Here are some links to some methods that may help you. They are not required. Yo
   * **tl;dr:** Find all elements in array that match a condition.
 
 [`.match`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)  
-  * **tl;dr:** Check if characters in a string match a regular expression.
+  * **tl;dr:** Check if characters in a string match a regular expression.  
   ```js
   "abc".match(/a/) // => ["a"]
   "abc".match(/d/) // => null
