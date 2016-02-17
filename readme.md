@@ -2,9 +2,11 @@
 
 ## Your Task
 
-Recreate the classic game of Hangman! Your version, however, will exist entirely in the Javascript console.
+Recreate the classic game of Hangman! Your version, however, will exist entirely in the Javascript console and/or in alert boxes.
 
 Here's a [refresher](https://en.wikipedia.org/wiki/Hangman_(game)) on how the game works. You can approach this however you'd like. If you need help, we've included a few hints [here](https://github.com/ga-wdi-exercises/hangman-lab/blob/master/hints.md).
+
+You can play our solution [here](http://ga-wdi-exercises.github.io/hangman-lab/). The Javascript has been "uglified" so it's unreadable.
 
 ## Helpful Resources
 
