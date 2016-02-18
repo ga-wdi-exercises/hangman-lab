@@ -51,13 +51,11 @@ var game = {
       alert("Wrong! Guess again loser.");
       remainingGuesses--;
     }
-
     // console.log(game.guesses);
     // console.log(guess)
   },
   tileUpdater: function(){
     //if function 3 returns true, will access this function to check where letter is and update the black tiles in the prompt
-
     var correctIndices = [];
     // var guess = game.guesses[guessNumber];
     var idx = game.letterArray.indexOf(guess);
@@ -111,7 +109,20 @@ var game = {
     game.tileGenerator();
     game.gameTracker();
     game.playAgain();
+  },
+  startMenu: function () {
+    var startOptions = prompt("Welcome to Hangman! 1. Play Game 2. Help / How To Play 3. Quit");
+    if (startOptions == "1") {
+      this.playANewGame();
+    } else if(startOptions == "2") {
+      var helpOption = prompt("This is supposed to be helpful, but I am too lazy to type directions to hangman! Enter Y if you would like to start playing.")
+      if(helpOption == "Y" || helpOption == "y") {
+        this.playANewGame();
+      } else {alert("Ok, nevermind then...")}
+    } else {
+      alert("See ya!")
+    }
   }
 }
 
-game.playANewGame();
+game.startMenu();
