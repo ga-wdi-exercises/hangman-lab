@@ -1,7 +1,7 @@
 console.log("welcome to hangman");
 var game = {
   //secretLetters: [],
-  //indexLetters: ["_"],
+  indexLetters: [],
 
   getSecretWord: function() {
     //prompt user for secret word
@@ -15,9 +15,9 @@ var game = {
   secretIndex: function() {
     //for secretLetters.length, create new array ["_", "_"]
     for (var i = 0; i < secretLetters.length; i++) {
-      indexLetters = ["_"];
-      indexLetters.push(); //this creates a subarray of _'s.
-      console.log(indexLetters);
+      var blankLetter = " _ ";
+      game.indexLetters.push(blankLetter);
+      console.log(game.indexLetters);
       //console.log(indexLetters.length);
       //console.log(secretLetters);
     }
@@ -26,17 +26,17 @@ var game = {
 
   showBlanks: function() {
     //display a prompt of console.log(indexLetters)
-    blankWord = prompt("Your word is now a secret.\n" + indexLetters[0] + "\n\n Please press 'return' or click 'OK' to continue game.");
+    blankWord = prompt("Your word is now a secret.\n\n" + game.indexLetters + "\n\n Please press 'return' or click 'OK' to continue game.");
   },
 
   guessLetter: function() {
     //display prompt window with blanks. ask user to guess a letter.
-    blankWord = prompt("Guess a letter.\n" + indexLetters[0] + "\nYou have X guesses remaining.");
+    blankWord = prompt("Guess a letter.\n\n" + game.indexLetters + "\n\nYou have X guesses remaining.");
 
     //create a guesses function.
     //start guesses at 6 and decrease by 1 for each incorrect answer.
     //if prompt input matches a value of secretLetters, replace an indexLetters "_" with matching letter.
-    //if prompt input does not match a value of secretLetters, indexLetters remains the same and guessesRemaining decreases in value by 1. 
+    //if prompt input does not match a value of secretLetters, indexLetters remains the same and guessesRemaining decreases in value by 1.
 
   },
 
