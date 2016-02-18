@@ -6,24 +6,24 @@ var userGuess = "e";
 var wrongGuesses = [];
 
 
-
-var blankOutWord = function (splitWord) {
-
-      for (i = 0; i < splitWord.length; i++) {
-          splitWord[i] = "-";
-        }
-    }
-
-
-blankOutWord(splitWord)
-
-alert(splitWord);
+var concealWord = function (x) {
+    var wordWithHints = [];
+    for (i = 0; i < x.length; i++) {
+        wordWithHints[i] = "-";
+    };
+    return wordWithHints;
+};
 
 
+
+var blankWord = concealWord(splitWord);
+
+alert(blankWord)
 
 var checkGuess = function() {
   if (splitWord.includes(userGuess)) {
     console.log("Correct!")
+    blankWord.push(userGuess)
   }
   else {
     console.log("Wrong!")
