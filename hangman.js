@@ -52,19 +52,31 @@ var game = {
 
   playGame: function(){
     var win = false;
-    this.getWord();
-    while(this.guesses >0 && !win)
+    var playAgain = "Y";
+    while(playAgain == "Y" || playAgain == "y")
     {
-      win = this.playRound();
-    }
+      this.getWord();
+      playAgain = "N";
+      while(this.guesses >0 && !win)
+      {
+        win = this.playRound();
+      }
 
-    if(win)
-    {
-      window.alert("Congrats you won! The word was: " + this.hidden.join(""));
-    }
-    else
-    {
-        console.log("Sorry, you lose The word was: " + this.word.join(""));
+      if(win)
+      {
+        window.alert("Congrats you won! The word was: " + this.hidden.join(""));
+      }
+      else
+      {
+        window.alert("Sorry, you lose. The word was: " + this.word.join(""));
+      }
+
+      playAgain = window.prompt("Play again? Press Y for yes");
+
+      // reset game
+      win = false;
+      this.guesses = 5;
+
     }
     // display blank string &
     // prompt user for first guesses
@@ -73,7 +85,7 @@ var game = {
     // repeat until...
 
     // if all letters guessed, display win and word
-    // else if run out of guesses, display lose
+    // else if run out of guesses, display lose and word
   }
 };
 
