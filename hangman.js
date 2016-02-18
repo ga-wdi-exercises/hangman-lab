@@ -3,40 +3,54 @@ game();
 function game(){
   console.log("welcome to hangman");
 
-  //!!!LATER: ask for number of players
-  //!!!LATER: get player names| can use .split()
-
-  //****players assigned game roles
-  var inCharge;
-  var guessers;
   var correct = [];
   var incorrect = [];
+  var players = [];
   var count = 0;
+
+  //get players
+  while(true){
+    var playerName = prompt("Who's playing? \n Please insert name(s). \n (Insert STOP to stop)");
+    if(playerName == "STOP"){
+      break;
+    }
+    else{
+      players.push(playerName);
+    }
+    console.log(players);
+  }
+
+  //choose random player
+  var inCharge = players[Math.floor(Math.random() * players.length)];
+  var index = players.indexOf(inCharge);
+  players.splice(index, 1);
+
+  console.log("It's " + inCharge + "'s turn for hangman!");
 
   //***the player inCharge provides answer
   //the spaces from answer are removed, the remaining characters are joined together, displayed in an array output
-
-  answer = beg = prompt("Choose a word, phrase, or sentence for the game.");
+  answer = beg = prompt(inCharge + " , please choose a word, phrase, or sentence to begin the game.");
   //answer.replace(/ /g, "").split('');
 
   while(answer){
     guessing();
     function guessing(){
 
+      var guessers = players[Math.floor(Math.random() * players.length)];
       //***have guessers...guess answer
-      var guess = prompt("What letter or number will you choose?");
+      var guess = prompt(guessers + ", what letter or number will you choose?");
 
       //wrong answer
       if( !(answer.includes(guess)) ){
         console.log("Nope, sorry.");
         incorrect.push(guess);
         count++;
-        console.log(count);
+        console.log(count + " try used");
 
         //game over
         if(count == 3){
-          console.log("Game Over");
-          answer=false;
+          console.log("You exceeded your amount of tries.");
+          oneMoreTime();
         }
         else{
           guessing();
@@ -48,7 +62,7 @@ function game(){
       else if(answer.includes(guess)){
         console.log("Correct! " + guess);
         correct.push(guess);
-        console.log(correct);
+        //console.log(correct);
 
         //play again?
         if(correct.length == answer.length){
