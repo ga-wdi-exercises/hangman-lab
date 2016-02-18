@@ -3,10 +3,13 @@ alert("welcome to hangman");
 //Need prompt for word
 var secretWord = prompt("Player 1 please type your secret word.", "Type word here.");
 //create object
-// var hangman = {};
+var hangman = {
 //split word into array.
-var newWord = secretWord.split("");
-
+  splitWord: function(){
+    newWord = secretWord.split("");
+    return newWord;
+  }
+};
 //print the number of letters to screen OR display progress
 //ask for guess
 //iterate over word/array
