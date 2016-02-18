@@ -1,6 +1,7 @@
 var split;
 var word;
 var guess;
+var numberOfGuess=0;
 // get user word 
 var getWord=function(){
 	word=prompt("Choose a word.").toLowerCase();
@@ -21,27 +22,39 @@ var splitWord=function(wordToSplit){
 };
 
 var guessWord=function(){
-
-	guess=prompt("Please guess a letter to fill in the blank: " + split).toLowerCase();
 	
-
-	for (var i=0; i<word.length; i++){
-		if(word[i]===guess){
-		  split[i] = guess;
+	while(numberOfGuess<word.length){
+		guess=prompt("Please guess a letter to fill in the blank: " + split).toLowerCase();
+		numberOfGuess++;
+		alert(numberOfGuess)
+		
+		for (var i=0; i<word.length; i++){
+			if(word[i]===guess){
+			  split[i] = guess;
+			}	
 		}
-    }
-    if (!word.includes(guess)) {
-        alert("That letter is not in the word. Try again.");
-    }
-    
-    if (split.includes("_")){
-        guessWord();
-    } else {
-        alert("Congratulations you've guessed the word. The word was " + word.join(""));
-    }
 
-	
-};
+		if (!word.includes(guess)) {
+		    alert("That letter is not in the word. Try again.");
+		    
+		}
+
+		if (split.includes("_")){
+		    // guessWord();
+		} else {
+		    alert("Congratulations you've guessed the word. The word was " + word.join(""));
+		    alert(numberOfGuess)
+		    break;
+		}
+
+
+		if (numberOfGuess>5){
+			alert("You've run out of guesses. Game Over!");
+
+
+		} // close while loop
+	}	
+}; // close guessWord function
 
 
 
