@@ -1,19 +1,27 @@
-alert("WELCOME TO HANGMAN\nPress Ok to play!");
-
-var secretWord = prompt("Enter a secret word");
-
-var guess = prompt("Guess a letter");
+var welcome = alert("WELCOME TO HANGMAN!");
+var ready = alert("Press Ok to play!");
 
 var guess = [];
-var letters = secretWord.split("");
-var wordLength = secretWord.length;
-var wordSubstring = secretWord.substring();
-var incorrectGuesses = ("guess" - 1);
-var wordBank = ["wombat", "slack", "computer", "function", "commit", "code", "javascript", "github", "outcomes", "atom", "hangman",  "technology", "math", "global", "debugging", "context", "tags", "scope", "closure"];
+wordBank = ["wombat", "slack", "computer", "function", "commit", "code", "javascript", "github", "outcomes", "atom", "hangman",  "technology", "math", "global", "debugging", "context", "tags", "scope", "closure"];
+var letters = wordBank.split("");
+var wordLength = wordBank.length;
+var wordSubstring = wordBank.substring();
+randomWord();
 
-var guess = prompt("Guess a letter");
-while (guess != secretWord)
-guess +=1;
-if (guess > 9) {
-  prompt("Oh no, you lost!");
+function newGame(){
+  var ready;
+  var randomWord;
+  var guess = prompt("Guess a letter");
+  guess;
+  var incorrectGuesses;
+  var correctGuesses;
+  endgameannouncement;
+  playAgain;
+}
+function randomWord(){
+    var random = Math.floor(Math.random() * wordBank.length);
+    var toString = wordBank[random];
+    console.log(toString);
+    word=toString.split("");
+    console.log(word);
 }
