@@ -1,6 +1,6 @@
 console.log("welcome to hangman");
-var parts = ["( )", "\n\\", "|", "/", "\n | \n", "/ ", "\\"];
-var man = "";
+// var parts = ["( )", "\n\\", "|", "/", "\n | \n", "/ ", "\\"];
+// var man = "";
 
 var game = {
   lettersInWord: [],
@@ -13,7 +13,7 @@ var game = {
     console.log(this.lettersInWord);
   },
 
-  createCorrect: function () {
+  createCorrectBlanks: function () {
     var self = this;
     this.lettersInWord.forEach(function () {
       self.correct.push("_");
@@ -21,38 +21,54 @@ var game = {
   },
 
   getGuesses: function () {
-    var guess;
+    var parts = ["( )", "\n\\", "|", "/", "\n | \n", "/ ", "\\"];
+    var man = "";
     while (this.misses.length < 7) {
-      guess = prompt("Guess:");
+      var guess = prompt("Guess:");
       if (this.lettersInWord.includes(guess)) {
         var wordIndex = this.lettersInWord.indexOf(guess);
         this.correct[wordIndex] = guess;
-        console.log("Correct: " + this.correct);
+        if (this.detectWinner()) {
+          alert("You Win!!\nThe word was '" + this.lettersInWord.join("") + "'");
+          break;
+        }
       } else {
         this.misses.push(guess);
         man += parts[this.misses.length - 1];
-        console.log("Misses: " + this.misses);
-        console.log(man);
       }
+      console.log("Correct: " + this.correct);
+      console.log("Misses: " + this.misses);
+      console.log(man);
+    }
+    if (this.misses.length === 7) {
+      alert("You Lose!\n" + man);
     }
   },
 
-  // drawMan: function () {
-  //   var self = this;
-  //   this.misses.forEach(function (i) {
-  //     var place = self.misses;
-  //     man += parts[place];
-  //   });
-  //   console.log(man);
-  // },
+  detectWinner: function () {
+    if (this.correct.join("") === this.lettersInWord.join("")) {
+      return true;
+    } else {
+      return false;
+    }
+  },
 
-  playGame: function () {
+  newGame: function () {
+    this.lettersInWord = [];
+    this.misses = [];
+    this.correct = [];
     this.getANewWord();
-    this.createCorrect();
+    this.createCorrectBlanks();
     alert("Ok Player 2: Time to guess");
     this.getGuesses();
-  }
+    // BONUS 1
+    var playAgain = prompt("Would you like to play again? (Y/N)");
+    playAgain = playAgain.toLowerCase();
 
+    if (playAgain === "y" || playAgain === 'yes') {
+      game.newGame();
+    }
+  }
 };
 
-game.playGame();
+game.newGame();
