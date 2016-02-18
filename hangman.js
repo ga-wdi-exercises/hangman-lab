@@ -1,11 +1,19 @@
-var man = "";
+var head = "___________\n |/       |\n |       (_)\n |\n |\n |\n |\n |____";
+var neck = "___________\n |/       |\n |       (_)\n |        |\n |\n |\n |\n |____";
+var body = "___________\n |/       |\n |       (_)\n |        |\n |        |\n |\n |\n |____";
+var arm1 = "___________\n |/       |\n |       (_)\n |       \\|\n |        |\n |\n |\n |____";
+var arm2 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |\n |\n |____";
+var leg1 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |       /\n |\n |____";
+var leg2 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |       / \\\n |\n |____";
+
 var game = {
   lettersInWord: [],
   misses: [],
   correct: [],
+  man: "",
+  parts: [head, neck, body, arm1, arm2, leg1, leg2],
 
-  // BONUS 2
-  showMenu: function () {
+  showMenu: function() {
     var option = prompt("Welcome to Hangman!\n\n[1] Play Game\n[2] How To Play\n[3] Quit");
     if (option == 1) {
       this.newGame();
@@ -15,44 +23,35 @@ var game = {
     }
   },
 
-  getANewWord: function () {
+  getANewWord: function() {
     var word = prompt("Player 1: Give a word to guess:");
     this.lettersInWord = word.split("");
   },
 
-  createCorrectBlanks: function () {
+  createCorrectBlanks: function() {
     var self = this;
     this.lettersInWord.forEach(function () {
       self.correct.push("_");
     });
   },
 
-  getsCorrectLetters: function (guess) {
-    var head = "___________\n |/       |\n |       (_)\n |\n |\n |\n |\n |____";
-    var neck = "___________\n |/       |\n |       (_)\n |        |\n |\n |\n |\n |____";
-    var body = "___________\n |/       |\n |       (_)\n |        |\n |        |\n |\n |\n |____";
-    var arm1 = "___________\n |/       |\n |       (_)\n |       \\|\n |        |\n |\n |\n |____";
-    var arm2 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |\n |\n |____";
-    var leg1 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |       /\n |\n |____";
-    var leg2 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |       / \\\n |\n |____";
-    var parts = [head, neck, body, arm1, arm2, leg1, leg2];
+  getsCorrectLetters: function(guess) {
     if (!this.lettersInWord.includes(guess)) {
       this.misses.push(guess);
-      man = parts[this.misses.length - 1];
+      this.man = this.parts[this.misses.length - 1];
     } else {
       for (var i = 0; i < this.lettersInWord.length; i++) {
         if (guess === this.lettersInWord[i]) {
-          // var letterIndex = this.lettersInWord.indexOf();
           this.correct[i] = guess;
         }
       }
     }
     console.log("Correct: " + this.correct);
     console.log("Misses: " + this.misses);
-    console.log(man);
+    console.log(this.man);
   },
 
-  getGuesses: function () {
+  getGuesses: function() {
     while (this.misses.length < 7) {
       var guess = prompt("Guess:");
         if (this.correct.includes(guess) || this.misses.includes(guess)) {
@@ -66,11 +65,11 @@ var game = {
         }
     }
     if (this.misses.length === 7) {
-      alert("You Lose!\n" + man);
+      alert("You Lose!\n" + this.man);
     }
   },
 
-  detectWinner: function () {
+  detectWinner: function() {
     if (this.correct.join("") === this.lettersInWord.join("")) {
       return true;
     } else {
@@ -78,7 +77,7 @@ var game = {
     }
   },
 
-  newGame: function () {
+  newGame: function() {
     this.lettersInWord = [];
     this.misses = [];
     this.correct = [];
@@ -86,10 +85,8 @@ var game = {
     this.createCorrectBlanks();
     alert("Ok Player 2: Time to guess");
     this.getGuesses();
-    // BONUS 1
     var playAgain = prompt("Would you like to play again? (Y/N)");
     playAgain = playAgain.toLowerCase();
-
     if (playAgain === "y" || playAgain === 'yes') {
       game.newGame();
     }
