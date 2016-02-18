@@ -1,6 +1,6 @@
 var game = {
   letters: [],
-  blanks: [],
+  wrongGuesses: 0,
 
   // need to split the word into an array
   splitWord: function() {
@@ -9,14 +9,22 @@ var game = {
     letters = initialWord.split("");
   },
   // need to create a new array with all letters as blanks
-  blankArray: function() {
-    while (i < letters.length) {
-      game.blanks.push("-");
-    }
-  },
+  // blankArray: function() {
+  //   letters.forEach(function(letter) {
+  //     game.blanks.push();
+  //   });
+  // },
   // need to take a guess and check it with the index of the finalWord array
   guessLetter: function() {
     var guess = prompt("What letter would you like to guess?");
+    var correct = letters.includes(guess);
+
+    if (correct === true) {
+      alert("You got it! " + guess + " is a correct answer!");
+    } else {
+      console.log("sorry, try again!");
+    }
+
   },
 
   // need to compare the guessed letter to all the values in the finalWord loop
