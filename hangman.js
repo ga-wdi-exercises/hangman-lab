@@ -1,1 +1,6 @@
-console.log("welcome to hangman");
+
+
+var hangman = {
+ 
+
+}
