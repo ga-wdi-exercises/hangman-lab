@@ -2,6 +2,7 @@ console.log("welcome to hangman");
 var game = {
   //secretLetters: [],
   indexLetters: [],
+  guessedLetters: [],
 
   getSecretWord: function() {
     //prompt user for secret word
@@ -26,12 +27,20 @@ var game = {
 
   showBlanks: function() {
     //display a prompt of console.log(indexLetters)
-    blankWord = prompt("Your word is now a secret.\n\n" + game.indexLetters + "\n\n Please press 'return' or click 'OK' to continue game.");
+    blankWord = alert("Your word is now a secret.\n\n" + game.indexLetters + "\n\n Please press 'return' or click 'OK' to continue game.");
   },
 
   guessLetter: function() {
     //display prompt window with blanks. ask user to guess a letter.
-    blankWord = prompt("Guess a letter.\n\n" + game.indexLetters + "\n\nYou have X guesses remaining.");
+    //log guessed letters into an array.
+    var max = 5;
+    for (var j = 0; j < max; j++) {
+      guessLetterStart = prompt("Guess a letter.\n\n" + game.indexLetters + "\n\nYou have X guesses remaining.");
+      game.guessedLetters.push(guessLetterStart);
+      console.log(game.guessedLetters);
+    }
+
+
 
     //create a guesses function.
     //start guesses at 6 and decrease by 1 for each incorrect answer.
