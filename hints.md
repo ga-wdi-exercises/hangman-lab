@@ -12,3 +12,5 @@ Your game should exhibit the following functionality...
 * When the player incorrectly guesses a letter, `incorrectGuesses` should be incremented by 1.
 * When the player guesses the entire word, the game ends.
 * When `incorrectGuesses` reaches a max value (to be determined by you), the game ends.
+
+You can play our version [here](http://ga-wdi-exercises.github.io/hangman-lab/). The Javascript has been "uglified" so it's unreadable. Your version may look completely different!
