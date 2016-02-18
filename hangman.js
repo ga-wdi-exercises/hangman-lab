@@ -20,7 +20,7 @@ var hangman = {
   checkGuess: function() {
     guessCounter = 5;
     while (this.displayWord.indexOf("_") >= 0) {
-      this.currentGuess = prompt("Enter a letter." + this.displayWord).toLowerCase();
+      this.currentGuess = prompt("Enter a letter. You have " + guessCounter + " inccorect guesses left." + '\r' + this.displayWord).toLowerCase();
       if (this.splitWord.indexOf(this.currentGuess) >= 0) {
         for (i = 0; i <= this.splitWord.length; i++) {
           if (this.splitWord[i] == this.currentGuess) {
