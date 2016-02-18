@@ -21,10 +21,7 @@ var askForGuess = function() {
 
 var checkGuess = function() {
 
-  if (blankWord === splitWord) {
-    alert("You win!")
-  }
-  else {
+
 
 
     if (splitWord.includes(userGuess)) {
@@ -34,7 +31,20 @@ var checkGuess = function() {
           }
         }
       alert("Correct! Your current progress is " + blankWord);
-          askForGuess();
+
+
+      for(var i = 0; i < splitWord.length; i++) {
+          if (splitWord[i] === blankWord[i]) {
+            alert("You win!");
+          }
+          else {
+            askForGuess();
+          }
+        }
+
+
+
+
     }
     else {
         wrongGuesses.push(userGuess)
@@ -43,9 +53,9 @@ var checkGuess = function() {
             askForGuess()
           }
           else {
-            alert("You're all out of guesses!  You lose!");
+            alert("Wrong! You're all out of guesses!  You lose!");
           }
     }
-  }
+
 }
 askForGuess();
