@@ -58,10 +58,12 @@ var game = {
     if(!goodGuess)
     {
       this.guesses--;
+      window.alert("Nope! Try again!");
       return false;
     }
     else
     {
+      window.alert("Good job! You got it!");
       return this.checkWin();
     }
   },
