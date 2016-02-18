@@ -20,22 +20,37 @@ var mask  = word.replace(/./g, "-");
 
 
 var goodguess = []
+var badguess = []
+
 while (goodguess.length < word.length) {
 
-  var guessedLetter = prompt("Alright! Start guessing the word " + name + " choose for your death!")
+  var guessedLetter = prompt("Alright! Start guessing the word " + name + " chose for your death!")
 
   var place = word.indexOf(guessedLetter);
   if (place === -1 ) {
-    console.log("Wrong guess!");
-    alert("Guess again")
-  }else {
-    console.log("good guess");
-    alert("good guess, guess again!")
-    goodguess.push(guessedLetter)
+    // console.log("Wrong guess!");
+    alert("Wrong guess! Guess again");
+    badguess.push(guessedLetter);
+
+    while (badguess.length > word.length) {
+      alert("You just hung your friend!");
+    break;
   }
 
-
 }
+
+   else {
+    // console.log("good guess");
+    alert("Good guess! keep going!");
+    goodguess.push(guessedLetter);
+  }
+}
+
+
+
+
+
+
 
 
 
