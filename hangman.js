@@ -1,19 +1,22 @@
 
-var word = "";
-var splitWord = [];
+
 
 var hangman = {
-
-  var word: "",
-  var splitWord = [],
-
-
+  word: "",
+  splitWord: [],
+  displayWord: [],
 
   getWord: function(){
-    word = prompt("Enter the word you want the other player to guess");
-    splitWord = word.split("");
-    return splitWord;
+    this.word = prompt("Enter the word you want the other player to guess");
+    this.splitWord = this.word.split("");
   },
+
+  displayProgress: function(){
+    for (i = 0; i < this.splitWord.length; i++) {
+      this.displayWord.push(["-"]);
+    }
+  },
+
 
   getGuess: function() {
 
@@ -23,4 +26,4 @@ var hangman = {
 
 
 hangman.getWord();
-console.log(splitWord);
+hangman.displayProgress();
