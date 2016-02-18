@@ -6,7 +6,7 @@ var game = {
   getWord: function(){
     var temp = window.prompt("Have someone enter a secret word for you to begin the game.");
     this.word = temp.toLowerCase().split("");
-    this.hidden = Array(this.word.length).fill("-");
+    this.hidden = Array(this.word.length).fill(" - ");
   },
 
   getGuess: function(){
