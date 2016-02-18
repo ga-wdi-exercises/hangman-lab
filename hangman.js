@@ -22,8 +22,11 @@ var hangman = {
     while (this.displayWord.indexOf("_") >= 0) {
       this.currentGuess = prompt("Enter a letter." + this.displayWord).toLowerCase();
       if (this.splitWord.indexOf(this.currentGuess) >= 0) {
-        var index = this.splitWord.indexOf(this.currentGuess);
-        this.displayWord[index] = this.currentGuess;
+        for (i = 0; i <= this.splitWord.length; i++) {
+          if (this.splitWord[i] == this.currentGuess) {
+              this.displayWord[i] = this.currentGuess;
+          }
+        }
       }
       else {
         guessCounter -= 1;
