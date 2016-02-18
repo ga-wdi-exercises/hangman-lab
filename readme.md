@@ -68,7 +68,3 @@ _______
 |
 |___
 ```
-
-## Example
-
-You can play one version [here](http://ga-wdi-exercises.github.io/hangman-lab/). The Javascript has been "uglified" so it's unreadable. Your version may look completely different!
