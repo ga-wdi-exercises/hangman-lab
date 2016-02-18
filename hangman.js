@@ -1,11 +1,18 @@
-console.log("welcome to hangman");
-// var parts = ["( )", "\n\\", "|", "/", "\n | \n", "/ ", "\\"];
-// var man = "";
-
 var game = {
   lettersInWord: [],
   misses: [],
   correct: [],
+
+  // BONUS 2
+  showMenu: function () {
+    var option = prompt("Welcome to Hangman!\n\n[1] Play Game\n[2] How To Play\n[3] Quit");
+    if (option == 1) {
+      this.newGame();
+    } else if (option == 2) {
+      alert("Hangman is a guessing game where one player thinks of a word and a second player attempts to guess that word in seven (or less) guesses buy suggesting letters.\n\nPlayer 1 will enter a word into the appropriate prompt and the remaining player will enter guesses one letter at a time.\n\nThe game will end when either Player 2 correctly guesses the word or 'The Hangman' is drawn completely.");
+      this.showMenu();
+    }
+  },
 
   getANewWord: function () {
     var word = prompt("Player 1: Give a word to guess:");
@@ -71,4 +78,4 @@ var game = {
   }
 };
 
-game.newGame();
+game.showMenu();
