@@ -1,16 +1,25 @@
 alert("welcome to hangman");
 
 //Need prompt for word
-var secretWord = prompt("Player 1 please type your secret word.", "Type word here.");
 //create object
 var hangman = {
+  secretWord: prompt("Player 1 please type your secret word.", "Type word here."),
+
 //split word into array.
   splitWord: function(){
-    newWord = secretWord.split("");
+    newWord = this.secretWord.split("");
     return newWord;
+  },
+
+  //print the number of letters to screen OR display dashes.
+  blackSpaces: function(){
+    //for each letter in hangman.splitWord replace with a dash.
+    for(i=0; i<secretWord.length; i++){
+
+    }
   }
 };
-//print the number of letters to screen OR display progress
+
 //ask for guess
 //iterate over word/array
 //if letter in word, locate index and replace blank with letter
