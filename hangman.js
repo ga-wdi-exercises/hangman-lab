@@ -4,43 +4,33 @@ var hangman = {
   splitWord: [],
   displayWord: [],
   currentGuess: [],
-  spliceNum: [],
 
   getWord: function(){
     this.word = prompt("Enter the word you want the other player to guess").toLowerCase();
     this.splitWord = this.word.split("");
+    this.displayProgress();
   },
 
   displayProgress: function(){
     for (i = 0; i < this.splitWord.length; i++) {
-      this.displayWord.push(["-"]);
+      this.displayWord.push("_");
     }
+    this.checkGuess();
   },
-
-  getGuess: function() {
-    this.currentGuess = prompt("Enter a letter").toLowerCase();
-  },
-
   checkGuess: function() {
-    if (this.currentGuess in this.splitWord) {
-      var index = this.splitWord.indexOf(this.currentGuess);
-      this.splitWord[index] = this.currentGuess;
-      if ("-" in this.splitWord) {
-        getGuess();
-        }
-        else {
-          alert("You win!");
-        }}
-    else {
-        alert("That letter not in the secret word.")
-        getGuess();
+    guessCounter = 5;
+    while (this.displayWord.indexOf("_") >= 0) {
+      this.currentGuess = prompt("Enter a letter." + this.displayWord).toLowerCase();
+      if (this.splitWord.indexOf(this.currentGuess) >= 0) {
+        var index = this.splitWord.indexOf(this.currentGuess);
+        this.displayWord[index] = this.currentGuess;
+      }
+      else {
+        guessCounter -= 1;
+        alert("That letter not in the secret word. You have" + guessCounter + " guesses left.");
       }
     }
-  }
-
-
+    }
+  };
 
 hangman.getWord();
-hangman.displayProgress();
-hangman.getGuess();
-hangman.checkGuess();
