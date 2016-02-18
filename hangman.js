@@ -42,16 +42,31 @@ var hangman = {
 
       if(this.newWord.includes(this.letter)){
         alert("the letter is in word");
-        //I want to replace a - with letter
+        //I want to replace a "-"" with a letter
         this.displayDashes[index] = this.letter;
         console.log(this.displayDashes);
+          if(this.displayDashes.includes("-")){
+            hangman.guessLetter();
+            hangman.compareToWord();
+          }
+          else{
+            alert("You win!");
+          }
       }else{
         alert("sorry that letter is not in the word.");
+        
       }
     console.log(this.newWord);
     console.log(this.letter);
     }
 };
+
+hangman.secretWord();
+hangman.splitWord();
+hangman.blankSpaces();
+hangman.guessLetter();
+hangman.compareToWord();
+
 
 //if letter in word, locate index and replace blank with letter. use .find()?
 //display progress
