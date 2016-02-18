@@ -6,8 +6,9 @@ for (i = 1; i <word.length; i ++) {
   dashWord += "-";
 }
 // var dashWord = "-----";
-
 alert("Word: " + dashWord + " Guess a letter");
-
-var string =("word:" + word);
-var result = string.split ();
+gameOver= false
+while (gameOver == false){
+  var guess = prompt("Enter a Letter");
+  console.log (guess);
+}
