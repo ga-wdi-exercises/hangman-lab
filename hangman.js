@@ -1,8 +1,10 @@
 console.log("welcome to hangman");
 var word = prompt("Enter a word.");
-console.log("word:", word);
+console.log("word:" + word);
+var dashWord;
 for (i = 0; i <word.length; i ++) {
-  dashWord += words [i] + "<br>";
+  dashWord += "-";
+  console.log(dashWord);
 }
 // var dashWord = "----";
 
