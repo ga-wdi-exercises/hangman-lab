@@ -9,12 +9,5 @@ for (i = 1; i <word.length; i ++) {
 
 alert("Word: " + dashWord + " Guess a letter");
 
-// {
-//   var str = ("word:");
-//   var newstr = str.replace ("----");
-//   function replacer (match, "word:", offset,string){
-//     return ["word:"]
-//   };
-//
-// console.log ("word:" + newstr);
-//}
+var string =("word:" + word);
+var result = string.split ("");
