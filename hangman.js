@@ -20,31 +20,26 @@ var askForGuess = function() {
 
 
 var checkGuess = function() {
-  if (splitWord.includes(userGuess)) {
+    if (splitWord.includes(userGuess)) {
+        var str = blankWord.join();
+        blankWord = str.replace("-" , userGuess)
+        blankWord = blankWord.split();
 
-      var str = blankWord.join();
-      blankWord = str.replace("-" , userGuess)
-      blankWord = blankWord.split();
+        alert("Correct! Your current progress is " + blankWord)
+    }
+    else {
+        wrongGuesses.push(userGuess)
 
-    alert("Correct! Your current progress is " + blankWord)
-  }
-  else {
-    wrongGuesses.push(userGuess)
-    alert("Wrong! Your wrong guesses are " + wrongGuesses)
-  }
-  
-  askForGuess();
+          if (wrongGuesses.length < 3) {
+
+            alert("Wrong! Your wrong guesses are " + wrongGuesses)
+          }
+          else {
+            alert("You're all out of guesses!  You lose!");
+          }
+    }
+    askForGuess()
 }
 
-function checkNumberOfGuesses() {
-
-  if (wrongGuesses.length > 3) {
-    alert("you lost!")
-  }
-  else {
-      askForGuess();
-  }
-
-}
 
 askForGuess();
