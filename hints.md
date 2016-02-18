@@ -1,4 +1,5 @@
 # Hints
+//Im so excited for this!!
 
 You might find it helpful to instantiate the following values in your game. Keep in mind, however, this is not the only way to build it out.
 * `word`: a string that stores the word to be guessed, inputted by user.
