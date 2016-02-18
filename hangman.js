@@ -1,6 +1,4 @@
 
-//Need prompt for word
-//create object
 var hangman = {
   word: "",
   letter: "",
@@ -13,7 +11,8 @@ var hangman = {
     this.word = prompt("Player 1 please type your secret word.", "Type word here.").toLowerCase();
     return this.word;
   },
-//split word into array.
+
+  //split word into array.
   splitWord: function(){
     this.newWord = this.word.split("");
   },
@@ -36,7 +35,8 @@ var hangman = {
   //iterate over word/array
   compareToWord: function(){
     //compare newWord to letter to guess
-
+      countAttempts = 6;
+      while(countAttempts > 0){
       if(this.newWord.includes(this.letter)){
         for(var i = 0; i<this.newWord.length; i++){
         //I want to replace a "-"" with a letter
@@ -54,10 +54,18 @@ var hangman = {
             alert("You win!");
           }
       }else{
-        alert("sorry that letter is not in the word." + "\n" + this.displayDashes);
+        countAttempts -= 1;
+        alert("sorry that letter is not in the word." + "\n" + this.displayDashes + "\n" + "Attempts left = " + countAttempts);
         hangman.guessLetter();
         hangman.compareToWord();
+        if(countAttempts === 0){
+          alert("You ran out of attempts. You lose. HANGMAN!");
+        }else{
+          hangman.guessLetter();
+          hangman.compareToWord();
       }
+    }
+    }
   },
 
   startGame: function(){
@@ -67,17 +75,11 @@ var hangman = {
     this.guessLetter();
     this.compareToWord();
 
+  },
+
+  replyGame:function(){
+    alert("");
   }
 };
 
 hangman.startGame();
-
-
-//if letter in word, locate index and replace blank with letter. use .find()?
-//display progress
-//else no change
-//display progress
-// if hyphen exists ask again.
-//else display 'you win'.
-
-//functions include: displayProgress, checkProgress, updateProgress
