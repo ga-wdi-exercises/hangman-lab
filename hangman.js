@@ -30,9 +30,24 @@ var hangman = {
       }
       else {
         guessCounter -= 1;
-        alert("That letter not in the secret word. You have" + guessCounter + " guesses left.");
+        alert("That letter not in the secret word. You have " + guessCounter + " guesses left.");
+        if (guessCounter === 0) {
+          alert("Sorry, you lose!");
+          this.playAgain();
+        }
       }
     }
+    alert("You win!");
+    this.playAgain();
+  },
+    playAgain: function(){
+      playMore = prompt("Would you like to play again? Y/N").toUpperCase();
+      if (playMore == "Y"){
+        this.getWord();
+      }
+      else {
+        alert("Thanks for playing!");
+      }
     }
   };
 
