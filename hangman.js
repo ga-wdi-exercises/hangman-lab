@@ -1,6 +1,6 @@
 console.log("welcome to hangman");
 
-var wordEntered = "elephant";
+var wordEntered = "cat";
 var splitWord = wordEntered.split("");
 var wrongGuesses = [];
 
@@ -13,33 +13,39 @@ var concealWord = function (x) {
 };
 var blankWord = concealWord(splitWord);
 
+
 var askForGuess = function() {
-  userGuess = prompt("Guess a letter.")
-  checkGuess()
+  userGuess = prompt("Guess a letter.");
+  checkGuess();
 }
 
-
 var checkGuess = function() {
-    if (splitWord.includes(userGuess)) {
-        var str = blankWord.join();
-        blankWord = str.replace("-" , userGuess)
-        blankWord = blankWord.split();
 
-        alert("Correct! Your current progress is " + blankWord)
+  if (blankWord === splitWord) {
+    alert("You win!")
+  }
+  else {
+
+
+    if (splitWord.includes(userGuess)) {
+        for (var i = 0; i < blankWord.length; i++) {
+          if (splitWord[i] === userGuess){
+            blankWord[i] = userGuess
+          }
+        }
+      alert("Correct! Your current progress is " + blankWord);
+          askForGuess();
     }
     else {
         wrongGuesses.push(userGuess)
-
           if (wrongGuesses.length < 3) {
-
             alert("Wrong! Your wrong guesses are " + wrongGuesses)
+            askForGuess()
           }
           else {
             alert("You're all out of guesses!  You lose!");
           }
     }
-    askForGuess()
+  }
 }
-
-
 askForGuess();
