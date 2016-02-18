@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <link href="Hangman.css" rel="stylesheet">
+        <title>Hangman</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="row">
+                <div class="col-xs-offset-4 col-xs-4">
+                  <img class="img-responsive" src="https://i.ytimg.com/vi/Cz_XFY6CZ1c/maxresdefault.jpg"/>
+                </header>
+
+
+<section>
+  <h1>Play The Game</h1>
+
+
+</section>
+
+
+
+   <script>
+
+var cool = prompt("Pick A Letter");
+
+
+          var hangman = {
+          letters: ["n","y","r","o","n"] ,
+          secretname: [] ,
+          playername: ""
+}
+
+        // while(hangman.secretname < [5]){
+            if(cool === "n"){
+
+              hangman.secretname.push("n");
+              var cool = prompt("Pick A Letter");
+            }
+            if(cool === "y"){
+
+              hangman.secretname.push("y");
+              var cool = prompt("Pick A Letter");
+            }
+            if(cool === "r"){
+
+              hangman.secretname.push("r");
+              var cool = prompt("Pick A Letter");
+            }
+            if(cool === "o"){
+
+              hangman.secretname.push("o");
+              var cool = prompt("Pick A Letter");
+            }
+            if(cool === "n"){
+
+              hangman.secretname.push("n");
+            
+              alert("You Win");
+            }
+          //  var cool = prompt("Correct! Pick Another")
+
+
+
+
+            </script>
+    </body>
+</html>
