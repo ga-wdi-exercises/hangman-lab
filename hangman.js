@@ -5,7 +5,7 @@ var game = {
 
   getWord: function(){
     var temp = window.prompt("Have someone enter a secret word for you to begin the game.");
-    this.word = temp.split("");
+    this.word = temp.toLowerCase().split("");
     this.hidden = Array(this.word.length).fill("-");
   },
 
@@ -24,12 +24,12 @@ var game = {
     }
   },
 
-  indexesOf: function(myLetter)
+  indexesOf: function(letter)
   {
     var indexes = [];
     for(var i = 0; i < this.word.length; i++)
     {
-        if(this.word[i] == myLetter)
+        if(this.word[i] == letter)
         {
             indexes.push(i);
         }
@@ -39,7 +39,7 @@ var game = {
 
   playRound: function(){
     var self = this;
-    var answer = this.getGuess();
+    var answer = this.getGuess().toLowerCase();
     var goodGuess = false; // There's got to be a better way to do this
     this.word.forEach(function(letter)
     {
@@ -63,7 +63,7 @@ var game = {
     }
     else
     {
-      window.alert("Good job! You got it!");
+      window.alert("Good job!");
       return this.checkWin();
     }
   },
