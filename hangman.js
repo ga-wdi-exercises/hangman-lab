@@ -20,23 +20,19 @@ var correctGuesses = [];
 var incorrectGuesses = 0;
 
 //this function gets the word for the game
-function getWord() {userWord = prompt("Welcome to hangman, please input a word for other user to guess:");
-    hangmanWord1.push(userWord);
-    //hangmanWord[0].split("");
-  //hangmanWord.push(userWord.split(""));
 
-}
+
+
+function getWord() {userWord = prompt("Welcome to hangman, please input a word for other user to guess:");
+hangmanWord1.push(userWord)}
+
+//var getWord = prompt("Welcome to hangman, please input a word for other user to guess:")
+//hangmanWord1.push(getWord);
 function splitHMW1() {
    hangmanWord = hangmanWord1[0].split("")
   console.log(hangmanWord);
 }
 
-/*function updateGuessWordHere()  {
-  for (var i = 0; i < hangmanWord.length; i++)
-  {guessWordHere.push("-")}
-  console.log(hangmanWord.length)
-  console.log(guessWordHere)
-}*/
 
 //this function should get user guesses
 var getUserGuess = function() {userGuess = prompt("Please input one letter below");
@@ -61,18 +57,20 @@ function moveGuess() {
     incorrectGuesses = incorrectGuesses+1;
   }}
 
-
-
-
-/*function evalGuess() {
-
-}*/
-
-
-//let's run some functions!
 getWord();
 splitHMW1();
-/*don't worry about this now: updateGuessWordHere();*/
-getUserGuess();
-evalGuess();
-moveGuess();
+
+while (incorrectGuesses < 5) {
+  getUserGuess();
+  evalGuess();
+  moveGuess();
+}
+
+if (incorrectGuesses = 5)
+{alert("Game over, you have hanged the hangman :(")}
+
+//let's run some functions!
+
+// getUserGuess();
+// evalGuess();
+// moveGuess();
