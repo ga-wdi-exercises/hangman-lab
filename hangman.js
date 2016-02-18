@@ -3,7 +3,14 @@ var game = {
   word: [],
   guesses: [],
   getPlayers: function(){
-    console.log("this is how you determine the number of players");
+    while (true){
+    var playerName = prompt("Welcome to the game! Please enter the player names one at a time. When all players are ready to start the game, type OK.");
+    if(playerName == "OK"){
+      break;
+    }else{
+      game.players.push(playerName);
+      }
+    }
   }
 }
 
