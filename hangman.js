@@ -26,6 +26,20 @@ var game = {
     }
   },
 
+  indexesOf: function(myLetter)
+  {
+    var indexes = [];
+    for(var i = 0; i < this.word.length; i++)
+    {
+        if(this.word[i] == myLetter)
+        {
+            indexes.push(i);
+        }
+    }
+    console.log(indexes);
+    return indexes;
+  },
+
   playRound: function(){
     var self = this;
     var answer = this.getGuess();
@@ -34,7 +48,12 @@ var game = {
     {
       if(letter == answer)
       {
-        self.hidden[self.word.indexOf(letter)] = letter;
+        var indexes = self.indexesOf(letter);
+
+        indexes.forEach(function(index)
+        {
+          self.hidden[index] = letter;
+        });
         goodGuess = true;
       }
     });
