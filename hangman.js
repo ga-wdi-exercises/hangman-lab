@@ -18,7 +18,6 @@ var game = {
   getANewWord: function () {
     var word = prompt("Player 1: Give a word to guess:");
     this.lettersInWord = word.split("");
-    console.log(this.lettersInWord);
   },
 
   createCorrectBlanks: function () {
@@ -56,7 +55,7 @@ var game = {
   getGuesses: function () {
     while (this.misses.length < 7) {
       var guess = prompt("Guess:");
-        if (this.correct.includes(guess)) {
+        if (this.correct.includes(guess) || this.misses.includes(guess)) {
           alert("You already guessed that letter!\nGuess again!");
           continue;
         }
