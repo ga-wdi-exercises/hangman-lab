@@ -1,9 +1,12 @@
 
-Welcome users to the game
+[x] Welcome users to the game
 
-Prompt user1 to select secretWord
+[x] Prompt user1 to select secretWord
 
-Prompt user2 to guess a letter, show them the number of letters in the word, and limit the number of guesses they get
+Prompt user2 to guess a letter,
+  [x]  show them the number of letters in the word,
+  []  and limit the number of guesses they get
+  []  compare the guessed letter with the secret Word
 
 Check user2's guess against letters in secretWord:
   * Correct guess: Do not deduct a guess and print results with the correct letter in the correct position
