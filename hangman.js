@@ -1,12 +1,10 @@
 var game = {
-  alphabet: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t" , "u", "v", "w", "x", "y", "z"],
   word: [],
   secretWord: [],
   guesses: [],
   wrongGuesses: [],
 
   chooseWord: function(){
-      console.log("about to prompt user");
       var playerWord = prompt("Please choose your secret word!");
       for (var i = 0; i <= playerWord.length; i++){
         var letter = playerWord[i];
@@ -17,24 +15,27 @@ var game = {
         var c = "-";
         game.secretWord.push(c);
       }
+      alert("Your word is now a secret: " + game.secretWord);
   },
 
   guessLetter: function(){
-    while (game.wrongGuesses < 10) {
-      var playerGuess = prompt("You have made " + (game.wrongGuesses + game.guesses.length) + " guesses out of 10. Please guess a letter -- or type STOP to stop the game.");
-        if (playerGuess == "STOP"){
+    while ((game.wrongGuesses.length + game.guesses.length) < 10) {
+      var playerGuess = prompt("You have made " + (game.wrongGuesses.length + game.guesses.length) + " guesses out of 10. Please guess a letter -- or type STOP to stop the game.");
+        if (playerGuess == "STOP" || playerGuess == "stop"){
+        alert("Game over!");
         break;
-      }else if (game.word.indexOf(playerGuess) > 0){
-          console.log(playerGuess + " is here!");
-          // game.secretWord.replace(".*","-");
-          // game.guesses.push(playerGuess);
+        }else if (playerGuess.length > 1) {
+        alert("You can't guess that! Please guess one letter.");
+        }else if (game.word.indexOf(playerGuess) >= 0){
+          alert(playerGuess + " is in the word!");
+          game.guesses.push(playerGuess);
+          //something to reveal the secretWord letter by letter goes here
+          //game.secretWord.replace(/.*/,"-");
         }else if (game.word.indexOf(playerGuess) === -1){
           alert(playerGuess + " is not in the secret word!");
-          game.wrongGuesses++;
-        }else if (playerGuess.length > 1) {
-          alert("You can't guess that! Please guess one letter.");
+          game.wrongGuesses.push(playerGuess);
         }
-    }
+    };
   }
 }
 
@@ -42,6 +43,8 @@ game.chooseWord();
 game.guessLetter();
 console.log(game.word);
 console.log(game.secretWord);
+console.log(game.guesses);
+console.log(game.wrongGuesses);
 
 /* psuedocode
 
