@@ -1,27 +1,35 @@
 var welcome = alert("WELCOME TO HANGMAN!");
 var ready = alert("Press Ok to play!");
 
-var guess = [];
+
 wordBank = ["wombat", "slack", "computer", "function", "commit", "code", "javascript", "github", "outcomes", "atom", "hangman",  "technology", "math", "global", "debugging", "context", "tags", "scope", "closure"];
-var letters = wordBank.split("");
+var letter = wordBank.split("");
 var wordLength = wordBank.length;
-var wordSubstring = wordBank.substring();
-randomWord();
+wordSubstring = wordBank.substring();
+var word = randomWord();
+var incorrectGuesses = [];
+var correctGuesses = [];
+var guess = [];
 
 function newGame(){
-  var ready;
+  var ready = alert("Press Ok to play!");
   var randomWord;
-  var guess = prompt("Guess a letter");
-  guess;
-  var incorrectGuesses;
-  var correctGuesses;
-  endgameannouncement;
+  function randomWord(){
+      var random = Math.floor(Math.random() * wordBank.length);
+      var toString = wordBank[random];
+      console.log(toString);
+      word=toString.split("");
+      console.log(word);
+  }
+  var incorrectGuesses = alert("Nice try but that letter is not there.");
+  var correctGuesses = alert("CORRECT!");
+  function guess(letter){
+    prompt("Guess a letter");
+    if(word.split("").includes(letter)){
+      return = var correctGuesses
+    } else {
+      return = var incorrectGuesses
+    }
+  endgameannouncement =
   playAgain;
-}
-function randomWord(){
-    var random = Math.floor(Math.random() * wordBank.length);
-    var toString = wordBank[random];
-    console.log(toString);
-    word=toString.split("");
-    console.log(word);
 }
