@@ -41,6 +41,8 @@ var hangman = {
     for (i=0; i<this.newWord.length; i++){
       if(this.letter === this.newWord[i]){
         alert("the letter is in word");
+      }else{
+        alert("sorry that letter is not in the word.");
       }
     console.log(this.newWord);
     console.log(this.letter);
