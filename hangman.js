@@ -1,55 +1,55 @@
 var game = {
+  alphabet: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t" , "u", "v", "w", "x", "y", "z"],
   word: [],
+  secretWord: [],
   guesses: [],
   wrongGuesses: [],
-  /*getPlayers: function(){
-    while (true){
-    var self = this;
-    var playerName = prompt("Welcome to the game! Please enter the player names one at a time. When all players are ready to start the game, type OK.");
-    if(playerName == "OK" || playerName == "ok"){
-      break;
-    }else{
-      self.players.push(playerName);
-      }
-    }
-  },
-  goesFirst: function(){
-    game.players.sort(function(a,b){
-      if (Math.random > 0.5) {
-        return 1;
-      }else{
-        return -1;
-      }
-    });
-  },*/
+
   chooseWord: function(){
+      console.log("about to prompt user");
       var playerWord = prompt("Please choose your secret word!");
-      game.word.push(playerWord);
-      return game.word.length;
+      for (var i = 0; i <= playerWord.length; i++){
+        var letter = playerWord[i];
+        game.word.push(letter);
+      }
+      for (var i = 0; i <= playerWord.length; i++){
+        var c = playerWord.charAt(i);
+        var c = "-";
+        game.secretWord.push(c);
+      }
+  },
+
+  guessLetter: function(){
+    while (game.wrongGuesses < 10) {
+      var playerGuess = prompt("You have made " + (game.wrongGuesses + game.guesses.length) + " guesses out of 10. Please guess a letter -- or type STOP to stop the game.");
+        if (playerGuess == "STOP"){
+        break;
+      }else if (game.word.indexOf(playerGuess) > 0){
+          console.log(playerGuess + " is here!");
+          // game.secretWord.replace(".*","-");
+          // game.guesses.push(playerGuess);
+        }else if (game.word.indexOf(playerGuess) === -1){
+          alert(playerGuess + " is not in the secret word!");
+          game.wrongGuesses++;
+        }else if (playerGuess.length > 1) {
+          alert("You can't guess that! Please guess one letter.");
+        }
     }
   }
-  /*guessLetter: function(){
-    var playerGuess = prompt("Please guess a letter.")
-    game.players.forEach(player)
-      if (playerGuess == game.word.
-  }*/
-
-
+}
 
 game.chooseWord();
+game.guessLetter();
 console.log(game.word);
+console.log(game.secretWord);
 
 /* psuedocode
 
-function getPlayers
-  return player
-
-function playerTurn
-  game.players.sort
-  player[i]
-
 function chooseWord
   prompt
+  split playerWord into characters
+  push split playerWord into game.word array
+  return length of array with a special character for each letter
 
 function guessLetter
   game.players.forEach
