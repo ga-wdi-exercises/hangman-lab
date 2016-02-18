@@ -3,17 +3,19 @@ guessNumber = 0;
 totalGuesses = 6
 correctGuesses = 0;
 remainingGuesses = totalGuesses;
-guess = ""
+guess = "";
+word = "";
 
 var game = {
   letterArray: [],
   guesses: [],
   tiles:[],
+  // word: "",
   pickWord: function(){
     //prompt for player 1 to choose word
     // returns word in the form of an array into the word key
     //has words like "make sure player 2 can't see, he's a real asshole"
-    var word = prompt("Let's play hangman! Please enter the word for player 2 to guess. Make sure he's not looking, player 2 is a real asshole!")
+    word = prompt("Let's play hangman! Please enter the word for player 2 to guess. Make sure he's not looking, player 2 is a real asshole!")
     game.letterArray = word.split("")
     // console.log(game.letterArray);
   },
@@ -78,25 +80,37 @@ var game = {
         game.player2Prompt();
         game.guessChecker();
         guessNumber++;
-        console.log(guessNumber);
-        console.log(correctGuesses);
+        // console.log(guessNumber);
+        // console.log(correctGuesses);
       }
       if (correctGuesses == game.letterArray.length) {
         alert("Congratulations, you win!")
       } else {
-        alert("Better luck next time!")
+        alert("The word was " + this.word + ". Better luck next time!")
       }
-      var playAgain = prompt("Do you want to play again? (Y or N)");
-      if (playAgain == "y" || playAgain == "Y"){
-        game.playANewGame();
-      } else {
-        alert("See you next time!")
-      }
+  },
+  playAgain: function() {
+    var playAgain = prompt("Do you want to play again? (Y or N)");
+    if (playAgain == "y" || playAgain == "Y"){
+      guessNumber = 0;
+      totalGuesses = 6;
+      correctGuesses = 0;
+      remainingGuesses = totalGuesses;
+      this.letterArray = [];
+      this.guesses = [];
+      this.tiles = [];
+      guess = "";
+      word= "";
+      game.playANewGame();
+    } else {
+      alert("See you next time!");
+    }
   },
   playANewGame: function() {
     game.pickWord();
     game.tileGenerator();
     game.gameTracker();
+    game.playAgain();
   }
 }
 
