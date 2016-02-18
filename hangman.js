@@ -3,14 +3,29 @@ console.log("welcome to hangman");
 alert("Hello!");
 
 
+//Do I want to create an object?
 
 
+
+var secretWord;
+var 
 
 //Prompt player1 to enter their secret word
+var startGame = function() {
+  secretWord = prompt("Please enter the secret word.");
+  secretWord=secretWord.split("");
+}
+//The secret word needs to be an array with indexes for each invidual letter
+//Take input text and convert to array with each letter as an index.
+
 
 //Prompt player2 to guess letter
   //This window should show dashes that correspond to the number of letters in the secret word.  It should also keep track of the amount of incorrect guesses remaining (begin with 5).
   //Player2 inputs letter
+var playerGuess = function() {
+
+}
+
 
 //If the letter entered by player2 is in the secret word:
   //Prompt player2 to guess letter
