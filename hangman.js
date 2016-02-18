@@ -41,8 +41,12 @@ var game = {
     while (this.misses.length < 7) {
       var guess = prompt("Guess:");
       if (this.lettersInWord.includes(guess)) {
-        var wordIndex = this.lettersInWord.indexOf(guess);
-        this.correct[wordIndex] = guess;
+        if (this.correct.includes(guess)) {
+          alert("You already guessed that letter!\nGuess again!");
+          continue;
+        }
+        var letterIndex = this.lettersInWord.indexOf(guess);
+        this.correct[letterIndex] = guess;
         if (this.detectWinner()) {
           alert("You Win!!\nThe word was '" + this.lettersInWord.join("") + "'");
           break;
