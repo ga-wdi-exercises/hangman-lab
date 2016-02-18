@@ -1,5 +1,6 @@
 var game = {
   letters: [],
+  guesses: [],
   wrongGuesses: 0,
 
   // need to split the word into an array
@@ -19,21 +20,32 @@ var game = {
     var guess = prompt("What letter would you like to guess?");
     var correct = letters.includes(guess);
 
-    if (correct === true) {
-      alert("You got it! " + guess + " is a correct answer!");
-    } else {
-      console.log("sorry, try again!");
-    }
+    // need to compare the guessed letter to all the values in the finalWord loop
 
+    if (correct === true) {
+      letters.forEach(function(letter) {
+        if (letter === guess) {
+          // alert("Nice! This spot has a " + guess);
+
+          game.guesses.push(guess);
+
+        // need to create a new array with the correct letter guessed or _ if wrong
+
+        } else {
+          game.guesses.push("_");
+        };
+      });
+
+      alert("Nice! You got it. Here are your letters so far: " + game.guesses);
+    } else {
+      alert("Sorry, try again!");
+
+      // need to store all wrong guesses in wrongGuesses and incremement by 1
+      return game.wrongGuesses++;
+    };
   },
 
-  // need to compare the guessed letter to all the values in the finalWord loop
-
-  // need to replace all index values that have the guessed letter with the letter itself
-
-  // need to store all wrong guesses in incorrectGuesses and incremement by 1
-
-  // need to end the game if incorrectGuesses reached 5
+  // need to end the game if wrongGuesses reached 5
 
   // need to alert the player when all letters have been guessed
 
