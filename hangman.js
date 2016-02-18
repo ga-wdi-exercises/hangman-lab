@@ -1,5 +1,3 @@
-console.log("welcome to hangman");
-
 var game = {
   word: [],
   hidden: [],
@@ -36,7 +34,6 @@ var game = {
             indexes.push(i);
         }
     }
-    console.log(indexes);
     return indexes;
   },
 
@@ -71,12 +68,8 @@ var game = {
 
   playGame: function(){
     var win = false;
-    var playAgain = "Y";
-    while(playAgain == "Y" || playAgain == "y")
-    {
-      this.getWord();
-      playAgain = "N";
-      while(this.guesses >0 && !win)
+    this.getWord();
+      while(this.guesses > 0 && !win)
       {
         win = this.playRound();
       }
@@ -89,23 +82,42 @@ var game = {
       {
         window.alert("Sorry, you lose. The word was: " + this.word.join(""));
       }
-
-      playAgain = window.prompt("Play again? Press Y for yes");
-
       // reset game
       win = false;
       this.guesses = 5;
+      this.startGame();
+  },
 
+  showRules: function(){
+    window.alert("1. Have a friend enter a word\n2. Choose letters to guess the word.\n3. You have 5 tries");
+
+    var menu = window.prompt("Return to menu? Press Y for yes");
+
+    if(menu == "Y" || menu == "y")
+    {
+      this.startGame();
     }
-    // display blank string &
-    // prompt user for first guesses
-    // if correct, add letter to blank string
-    // else subtract from number of guesses
-    // repeat until...
+  },
 
-    // if all letters guessed, display win and word
-    // else if run out of guesses, display lose and word
+  startGame: function(){
+    var choice = window.prompt("Welcome to Hangman!" +
+    "\n1. Play Game\n2. Help / How To Play\n3. Quit");
+    console.log(choice);
+
+    if(choice == 1)
+    {
+      this.playGame();
+    }
+    else if(choice == 2)
+    {
+      this.showRules();
+    }
+    else
+    {
+      window.alert("Thanks for playing!");
+    }
+
   }
 };
 
-game.playGame();
+game.startGame();
