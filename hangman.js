@@ -81,6 +81,7 @@ var game = {
     this.lettersInWord = [];
     this.misses = [];
     this.correct = [];
+    this.man = "";
     this.getANewWord();
     this.createCorrectBlanks();
     alert("Ok Player 2: Time to guess");
