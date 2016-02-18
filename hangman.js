@@ -26,25 +26,26 @@ var hangman = {
     }
   },
 
-  displayProgress: function(){
-    alert(this.blankSpaces().join());
-  },
 
   //ask for guess
   guessLetter: function(){
     this.letter = prompt("Please guess a letter Player2").toLowerCase();
   },
 
+
   //iterate over word/array
   compareToWord: function(){
     //compare newWord to letter to guess
-      index = this.newWord.indexOf(this.letter);
 
       if(this.newWord.includes(this.letter)){
-        alert("the letter is in word");
+        for(var i = 0; i<this.newWord.length; i++){
         //I want to replace a "-"" with a letter
-        this.displayDashes[index] = this.letter;
-        console.log(this.displayDashes);
+        if(this.newWord[i] === this.letter){
+        this.displayDashes[i] = this.letter;
+        }
+      }
+
+        alert(this.displayDashes);
           if(this.displayDashes.includes("-")){
             hangman.guessLetter();
             hangman.compareToWord();
@@ -53,19 +54,23 @@ var hangman = {
             alert("You win!");
           }
       }else{
-        alert("sorry that letter is not in the word.");
-        
+        alert("sorry that letter is not in the word." + "\n" + this.displayDashes);
+        hangman.guessLetter();
+        hangman.compareToWord();
       }
-    console.log(this.newWord);
-    console.log(this.letter);
-    }
+  },
+
+  startGame: function(){
+    this.secretWord();
+    this.splitWord();
+    this.blankSpaces();
+    this.guessLetter();
+    this.compareToWord();
+
+  }
 };
 
-hangman.secretWord();
-hangman.splitWord();
-hangman.blankSpaces();
-hangman.guessLetter();
-hangman.compareToWord();
+hangman.startGame();
 
 
 //if letter in word, locate index and replace blank with letter. use .find()?
