@@ -10,4 +10,4 @@ for (i = 1; i <word.length; i ++) {
 alert("Word: " + dashWord + " Guess a letter");
 
 var string =("word:" + word);
-var result = string.split ("");
+var result = string.split ();
