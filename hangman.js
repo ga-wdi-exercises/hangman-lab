@@ -13,14 +13,14 @@ var game = {
   // word: "",
   pickWord: function(){
     //prompt for player 1 to choose word
-    // returns word in the form of an array into the word key
+    // returns word in the form of an array
     //has words like "make sure player 2 can't see, he's a real asshole"
     word = prompt("Let's play hangman! Please enter the word for player 2 to guess. Make sure he's not looking, player 2 is a real asshole!")
     game.letterArray = word.split("")
     // console.log(game.letterArray);
   },
   tileGenerator: function(){
-    //function to generate the number of spaces remaining on the word
+    //function to generate the number of spaces on the word
     game.letterArray.forEach(function(letter){
       game.tiles.push(" ____ ");
     })
@@ -28,7 +28,7 @@ var game = {
   },
   player2Prompt: function(){
     //prompt for player 2 to guess
-    //prompt will say something like 'number of letters' and a bunch on blank spaces to represent word length
+    //prompt will say something like 'guesses remaining' and a bunch on blank spaces to represent word length
     //prompt will also have to list wrong guesses, number of guesses made, number remaining
     //function will have to call upon another function to replace the black spaces with letters after guesses are made
     //responds with either correct or not
@@ -38,10 +38,8 @@ var game = {
   },
   guessChecker: function(){
     //letter checker function
-    //scans thru list of letters and sees if letter exists
     //will need .includes function
     //if letter is in function will return True
-    //can also be used to increment counter for correct/wrong guesses
     //will display an alert saying either correct or nope! and "onto next guess"
     // var guess = game.guesses[guessNumber];
     if(game.letterArray.includes(guess)){
@@ -56,6 +54,7 @@ var game = {
   },
   tileUpdater: function(){
     //if function 3 returns true, will access this function to check where letter is and update the black tiles in the prompt
+    //scans thru list of letters and sees if letter exists in the array
     var correctIndices = [];
     // var guess = game.guesses[guessNumber];
     var idx = game.letterArray.indexOf(guess);
@@ -73,8 +72,8 @@ var game = {
   },
   gameTracker: function(){
     //game tracker
-    //checks and sees if victory is achieved. prompts user if they want to start a new game
     while(correctGuesses < game.letterArray.length && remainingGuesses > 0) {
+        this.hangmanGenerator();
         game.player2Prompt();
         game.guessChecker();
         guessNumber++;
@@ -88,6 +87,7 @@ var game = {
       }
   },
   playAgain: function() {
+    //checks and sees if victory is achieved. prompts user if they want to start a new game
     var playAgain = prompt("Do you want to play again? (Y or N)");
     if (playAgain == "y" || playAgain == "Y"){
       guessNumber = 0;
