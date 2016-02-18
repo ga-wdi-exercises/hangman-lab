@@ -6,6 +6,8 @@ var hangman = {
   letter: "",
   newWord: "",
   welcome: alert("welcome to hangman"),
+  displayDashes: [],
+
 
   secretWord: function(){
     this.word = prompt("Player 1 please type your secret word.", "Type word here.").toLowerCase();
@@ -19,11 +21,9 @@ var hangman = {
   //print the number of letters to screen OR display dashes.
   blankSpaces: function(){
     //for each letter in hangman.splitWord replace with a dash.
-    var displayDashes = [];
     for(i=0; i<this.word.length; i++){
-      displayDashes.push("-");
+      this.displayDashes.push("-");
     }
-    return displayDashes;
   },
 
   displayProgress: function(){
@@ -38,17 +38,19 @@ var hangman = {
   //iterate over word/array
   compareToWord: function(){
     //compare newWord to letter to guess
-    for (i=0; i<this.newWord.length; i++){
-      if(this.letter === this.newWord[i]){
+      index = this.newWord.indexOf(this.letter);
+
+      if(this.newWord.includes(this.letter)){
         alert("the letter is in word");
+        //I want to replace a - with letter
+        this.displayDashes[index] = this.letter;
+        console.log(this.displayDashes);
       }else{
         alert("sorry that letter is not in the word.");
       }
     console.log(this.newWord);
     console.log(this.letter);
     }
-  }
-
 };
 
 //if letter in word, locate index and replace blank with letter. use .find()?
