@@ -14,8 +14,8 @@ if it's contained in the original word array, place it in the correct position*/
 var hangmanWord = []
 var correctGuesses = [];
 var incorrectGuesses = [];
-function getWord() {userWord = prompt("Welcome to hangman, please input a word for other user to guess:")
-  hangmanWord.push(userWord.split(','));
+function getWord() {userWord = prompt("Welcome to hangman, please input a word for other user to guess:").toUpperCase();
+  hangmanWord.push(userWord.split(''));
   console.log(hangmanWord);
 }
 function getUserGuess() {var userGuess = prompt("Please input one letter below").toUpperCase();
