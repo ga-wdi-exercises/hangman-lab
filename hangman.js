@@ -28,7 +28,15 @@ var game = {
   },
 
   getGuesses: function () {
-    var parts = ["( )", "\n\\", "|", "/", "\n | \n", "/ ", "\\"];
+    // BONUS 3
+    var head = "___________\n |/       |\n |       (_)\n |\n |\n |\n |\n |____";
+    var neck = "___________\n |/       |\n |       (_)\n |        |\n |\n |\n |\n |____";
+    var body = "___________\n |/       |\n |       (_)\n |        |\n |        |\n |\n |\n |____";
+    var arm1 = "___________\n |/       |\n |       (_)\n |       \\|\n |        |\n |\n |\n |____";
+    var arm2 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |\n |\n |____";
+    var leg1 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |       /\n |\n |____";
+    var leg2 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |       / \\\n |\n |____";
+    var parts = [head, neck, body, arm1, arm2, leg1, leg2];
     var man = "";
     while (this.misses.length < 7) {
       var guess = prompt("Guess:");
@@ -41,7 +49,7 @@ var game = {
         }
       } else {
         this.misses.push(guess);
-        man += parts[this.misses.length - 1];
+        man = parts[this.misses.length - 1];
       }
       console.log("Correct: " + this.correct);
       console.log("Misses: " + this.misses);
