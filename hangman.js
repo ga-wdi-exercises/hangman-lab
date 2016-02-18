@@ -11,14 +11,14 @@ var game = {
     //prompt user for secret word
     secretWord = prompt("Please enter your secret word.");
     //split secret word into array of letters
-    secretLetters = secretWord.split("");
-    console.log(secretLetters);
+    game.secretLetters = secretWord.split("");
+    console.log(game.secretLetters);
 
   },
 
   secretIndex: function() {
     //for secretLetters.length, create new array ["_", "_"]
-    for (var i = 0; i < secretLetters.length; i++) {
+    for (var i = 0; i < game.secretLetters.length; i++) {
       var blankLetter = " _ ";
       game.indexLetters.push(blankLetter);
       console.log(game.indexLetters);
@@ -35,12 +35,13 @@ var game = {
 
   guessLetter: function(){
       while (game.wrongGuesses.length < 10) {
-        var playerGuess = prompt("You have made " + (game.wrongGuesses.length) + " guesses out of 10. Please guess a letter -- or type STOP to stop the game.");
+        var playerGuess = prompt("You have made " + (game.wrongGuesses.length) + " incorrect guesses out of 10. Please guess a letter -- or type STOP to stop the game.");
           if (playerGuess == "STOP" || playerGuess == "stop"){
           break;
           } else if (game.secretLetters.indexOf(playerGuess) >= 0) {
             alert(playerGuess + " is in the secret word!");
-            game.guesses.push(playerGuess);
+            //game.guesses.push(playerGuess);
+            console.log(game.secretLetters.indexOf(playerGuess) >= 0);
           } else if (game.secretLetters.indexOf(playerGuess) === -1){
             alert(playerGuess + " is not in the secret word!");
             game.wrongGuesses.push(playerGuess);
