@@ -5,30 +5,32 @@ var hangman = {
   word =[],
   guesses =[],
   incorrectGuesses=[]
-  playNumber = word.length + 6;
-  counter = playNumber - guesses.length;
+  var playNumber = word.length + 6;
+  var counter = playNumber - guesses.length;
 
    function getPlayer() {
      var playerName = prompt("Enter your name");
-       if (playerName){
+       if (playerName !== null){
          player.push(playerName);
        }
-       console.log(playerName + "Welcome to hangman");
+       console.log(playerName +" "+ "Welcome to hangman");
 
-   }
+   };
    function getWord() {
-     secretWord = prompt(playerName + "Welcome to hangman, Enter a secret word to play ").toUpperCase().toString();
+     if (secretWord == null){ prompt(playerName + "Welcome to hangman, Enter a secret word to play ").toUpperCase().toString();
      hangman.word.push(secretWord.split(""));
-   }
+     };
+   };
    function PlayGame() {
-     var play = prompt("Please enter a letter to play").toUpperCase().toString();
-     if(play) {
+    if (counter > 0) {Alert("You have " + counter + " lives");
+    }
+    elseif (counter == 0){
+       alert("Game Over" + player + getWinner())
+     }
+     else {
+       var play = prompt("Please enter a letter to play").toUpperCase().toString();
+       if(play !== null) {
        hangman.guesses.push(play);
-       for (i=0, i<word.length, i++){
-         hangman.guesses.forEach(.match())
-       }
-       if (counter == 0){
-         alert("Game Over" + player + getWinner())
        }
      }
    }
@@ -41,13 +43,18 @@ var hangman = {
             if ( guesses[i] === word[e] ) matches.push( guesses[i] );
         }
     }
+      //  for (i=0, i<word.length, i++){
+      //    hangman.guesses.forEach(.match())
+      //  }
     return matches;
 }
    function getWinner() {
-     if (matches ===)
+     if
+      }
+
+     }
    }
-
-
+   
 
 
   //   var arrays = word.concat(guesses) //fancy but complicated
