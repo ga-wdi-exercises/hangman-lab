@@ -22,7 +22,3 @@ function guess(letter){
     return "guess incorrect"
   }
 }
-
-console.log(guess("p"));
-console.log(guess("i"));
-console.log(guess("q"));
