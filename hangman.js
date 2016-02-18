@@ -7,8 +7,22 @@ for (i = 1; i <word.length; i ++) {
 }
 // var dashWord = "-----";
 alert("Word: " + dashWord + " Guess a letter");
-gameOver= false
+var word = "pizza"
+gameOver = false;
 while (gameOver == false){
   var guess = prompt("Enter a Letter");
   console.log (guess);
+
+  var word = "word"
+
+function guess(letter){
+  if(word.split("").includes(letter)){
+    return "guess correct"
+  } else {
+    return "guess incorrect"
+  }
 }
+
+console.log(guess("p"));
+console.log(guess("i"));
+console.log(guess("q"));
