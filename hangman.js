@@ -7,18 +7,15 @@ for (i = 1; i <word.length; i ++) {
 }
 // var dashWord = "-----";
 alert("Word: " + dashWord + " Guess a letter");
-var word = "pizza"
-gameOver = false;
-while (gameOver == false){
-  var guess = prompt("Enter a Letter");
-  console.log (guess);
 
-  var word = "word"
-
-function guess(letter){
-  if(word.split("").includes(letter)){
-    return "guess correct"
-  } else {
-    return "guess incorrect"
+ var word = "pizza"
+ var gameOver = false;
+ var guess = 8;
+  while (gameOver == false){
+    var guess = prompt("Enter a Letter");
+    }
+  while (gameOver == true){
+    var guess = prompt ("Hangman")
   }
-}
+    console.log (guess);
+  
