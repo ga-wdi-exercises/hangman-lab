@@ -1,3 +1,4 @@
+var man = "";
 var game = {
   lettersInWord: [],
   misses: [],
@@ -27,8 +28,7 @@ var game = {
     });
   },
 
-  getGuesses: function () {
-    // BONUS 3
+  getsCorrectLetters: function (guess) {
     var head = "___________\n |/       |\n |       (_)\n |\n |\n |\n |\n |____";
     var neck = "___________\n |/       |\n |       (_)\n |        |\n |\n |\n |\n |____";
     var body = "___________\n |/       |\n |       (_)\n |        |\n |        |\n |\n |\n |____";
@@ -37,27 +37,34 @@ var game = {
     var leg1 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |       /\n |\n |____";
     var leg2 = "___________\n |/       |\n |       (_)\n |       \\|/\n |        |\n |       / \\\n |\n |____";
     var parts = [head, neck, body, arm1, arm2, leg1, leg2];
-    var man = "";
+    if (!this.lettersInWord.includes(guess)) {
+      this.misses.push(guess);
+      man = parts[this.misses.length - 1];
+    } else {
+      for (var i = 0; i < this.lettersInWord.length; i++) {
+        if (guess === this.lettersInWord[i]) {
+          // var letterIndex = this.lettersInWord.indexOf();
+          this.correct[i] = guess;
+        }
+      }
+    }
+    console.log("Correct: " + this.correct);
+    console.log("Misses: " + this.misses);
+    console.log(man);
+  },
+
+  getGuesses: function () {
     while (this.misses.length < 7) {
       var guess = prompt("Guess:");
-      if (this.lettersInWord.includes(guess)) {
         if (this.correct.includes(guess)) {
           alert("You already guessed that letter!\nGuess again!");
           continue;
         }
-        var letterIndex = this.lettersInWord.indexOf(guess);
-        this.correct[letterIndex] = guess;
+        this.getsCorrectLetters(guess);
         if (this.detectWinner()) {
           alert("You Win!!\nThe word was '" + this.lettersInWord.join("") + "'");
           break;
         }
-      } else {
-        this.misses.push(guess);
-        man = parts[this.misses.length - 1];
-      }
-      console.log("Correct: " + this.correct);
-      console.log("Misses: " + this.misses);
-      console.log(man);
     }
     if (this.misses.length === 7) {
       alert("You Lose!\n" + man);
