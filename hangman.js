@@ -9,21 +9,26 @@ var wrongGuesses = [];
 var concealWord = function (x) {
     var wordWithHints = [];
     for (i = 0; i < x.length; i++) {
-        wordWithHints[i] = "-";
+        wordWithHints[i] = "q";
     };
     return wordWithHints;
 };
 
-
-
 var blankWord = concealWord(splitWord);
-
-alert(blankWord)
 
 var checkGuess = function() {
   if (splitWord.includes(userGuess)) {
     console.log("Correct!")
-    blankWord.push(userGuess)
+
+
+    function ostrich() {
+
+
+      var str = blankWord.join();
+      str.replace("q" , "e")
+    }
+  ostrich()
+
   }
   else {
     console.log("Wrong!")
@@ -31,4 +36,8 @@ var checkGuess = function() {
   }
 }
 
+
 checkGuess();
+
+
+alert(blankWord)
