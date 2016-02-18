@@ -31,18 +31,20 @@ while (goodguess.length < word.length) {
     alert("Wrong guess! Guess again");
     badguess.push(guessedLetter);
 
-    while (badguess.length > word.length) {
+    if (badguess.length > word.length) {
       alert(name + ", you're terrible friend and you just hung your best friend " + best + " !");
-    break;
-  }
+      break;
+    }
 
 }
 
    else {
-    // console.log("good guess");
     alert("Good guess! keep going!");
     goodguess.push(guessedLetter);
   }
+    if (goodguess.length === word.length)
+    alert("Good job!");
+
 }
 
 
