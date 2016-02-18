@@ -1,18 +1,14 @@
 console.log("welcome to hangman");
-var word = prompt("Enter a word for your player to guess!"); //ask for word//
-var guesses = []; //counts the guesses//
-var guessLimit = 7; //sets a limit of guesses//
+var word = prompt("Enter a word for your player to guess!"),toLowerCase(); //ask for word//
+var guesses = [];
+var guessLimit = 7;//counts the guesses//
 
 //split the word into an array of letters, that are shown as dashes until guessed correctly//
 function separateWord(word) {
   var letters = word.split("");
-  var dashes = "" ;
-    for(var i = 0; i < letters.length; i+=1) {
-      if (guesses.includes(letters[i])) {
-        letters[i] = letters[i];
-      }
-      else {
-        letters[i] = "-"
+  var placeholders = "" ;
+    for(var i = 0; i < word.length; i+=1) {
+      letters[i]= "_"
     }
   }
   return letters.join("") //convert the dashes back into an array(the word) keeping the dashes instead of the letters//
@@ -24,7 +20,7 @@ while(numberWrongGuesses < guessLimit) {
   prompt("Guess a letter.")
 }
 }
-function guess(letter) {
+function checkLetter(letter) {
   guesses.push(letter);
   var wrongGuess = wrongChoice(letter);
   alert("The letter you selected, " + letter + "is incorrect. You have " + (guessLimit - wrongGuess) + " guesses left. Try again!")
