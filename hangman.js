@@ -43,8 +43,8 @@ var hangman = {
         }
         alert(this.displayDashes);
           if(this.displayDashes.includes("-")){
-            hangman.guessLetter();
-            hangman.compareToWord();
+            this.guessLetter();
+            this.compareToWord();
           }
           else{
             alert("You win!");
@@ -57,6 +57,7 @@ var hangman = {
         hangman.compareToWord();
       }
     }
+    //infinite loop occurs after adding this snippet.
     if(this.counterAttempts === 0){
     alert("You have no more attempts. Sorry you lose.");
     }
