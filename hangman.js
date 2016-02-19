@@ -5,8 +5,6 @@ var game = {
   //guesses: [],
   wordLetters: [],
   maskedLetters: [],
-  playerScore: 0,
-  executionerScore: 0,
   getWord: function() {
     this.word = prompt("Enter your secret word.");
   },
@@ -21,11 +19,10 @@ var game = {
     //});
   },
   guessLetter: function () {
-    var guess = prompt("Guess a letter.");
+    var guess = prompt (this.maskedLetters + "\n\nThe word has " + this.wordLetters.length + " letters.\n\n Guess a letter.");
     for (i = 0; i < this.wordLetters; i++) {
       if (this.wordLetters[i] === guess) {
         this.maskedLetters[i] = guess;
-        this.playerScore ++;
       }
     }
   }
