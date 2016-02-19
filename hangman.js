@@ -1,6 +1,6 @@
 console.log("welcome to hangman");
 
-var wordEntered = "cat";
+var wordEntered = prompt("Please enter a word");
 var splitWord = wordEntered.split("");
 var wrongGuesses = [];
 
@@ -17,6 +17,7 @@ var askForGuess = function() {
   userGuess = prompt("Guess a letter.");
   checkGuess();
 };
+
 
 var checkGuess = function() {
     if (splitWord.includes(userGuess)) {
