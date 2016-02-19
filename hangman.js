@@ -36,7 +36,7 @@ var checkGuess = function() {
     }
     else {
         wrongGuesses.push(userGuess);
-          if (wrongGuesses.length < 3) {
+          if (wrongGuesses.length < 9) {
             alert("Wrong! Your wrong guesses are " + wrongGuesses);
             askForGuess();
           }
