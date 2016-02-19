@@ -13,7 +13,6 @@ var concealWord = function (x) {
 };
 var blankWord = concealWord(splitWord);
 
-
 var askForGuess = function() {
   userGuess = prompt("Guess a letter.");
   checkGuess();
@@ -34,7 +33,6 @@ var checkGuess = function() {
       else {
         alert("You win!");
       }
-
     }
     else {
         wrongGuesses.push(userGuess);
