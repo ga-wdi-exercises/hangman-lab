@@ -1,0 +1,17 @@
+
+[x] Welcome users to the game
+
+[x] Prompt user1 to select secretWord
+
+Prompt user2 to guess a letter,
+  [x]  show them the number of letters in the word,
+  []  and limit the number of guesses they get
+  []  compare the guessed letter with the secret Word
+
+Check user2's guess against letters in secretWord:
+  * Correct guess: Do not deduct a guess and print results with the correct letter in the correct position
+  * Incorrect guess: Deduct 1 guess and print results
+
+Repeat until the user guess the word or runs of out guesses:
+  * Wins: Game over, You win
+  * Loses: Game over You lose
