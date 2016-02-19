@@ -24,11 +24,14 @@ var game = {
         if (playerGuess == "STOP" || playerGuess == "stop"){
         alert("Game over!");
         break;
-        }else if (playerGuess.length > 1) {
+      }else if (playerGuess.length > 1)  {
         alert("You can't guess that! Please guess one letter.");
         }else if (game.word.indexOf(playerGuess) >= 0){
           alert(playerGuess + " is in the word!");
           game.guesses.push(playerGuess);
+          var g = game.word.indexOf(playerGuess);
+          game.secretWord[g] = playerGuess;
+          alert(game.secretWord);
           //something to reveal the secretWord letter by letter goes here
           //game.secretWord.replace(/.*/,"-");
         }else if (game.word.indexOf(playerGuess) === -1){
@@ -45,6 +48,7 @@ console.log(game.word);
 console.log(game.secretWord);
 console.log(game.guesses);
 console.log(game.wrongGuesses);
+
 
 /* psuedocode
 
