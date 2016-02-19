@@ -1,0 +1,40 @@
+function guessWord() {
+word = prompt("Guess the word");
+return word;
+}
+guessWord();
+console.log(word);
+
+
+
+var wordInput = "insert";
+var splitWord = word.split("");
+
+ var turnDash = function (x) {
+     var y = [];
+     for (i=0; i < x.length; i++) {
+         y[i] = "_";
+     };
+     return y;
+
+if (y === splitWord) {
+alert("You are the winner!")
+}
+else {
+if(splitWord.includes.(guessWord)) {
+for (var i=0; i < x.length; i++) {
+if(splitWord[i] === guessWord){
+y[i] === guessWord;
+}
+}
+
+}
+
+
+
+if (guessRight) {
+change the dash to letter
+if (guessWrong) {
+}
+
+}
