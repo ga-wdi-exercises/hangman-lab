@@ -27,33 +27,38 @@ var hangman = {
 
 
   //ask for guess
-guessLetter: function(){
+  guessLetter: function(){
     this.letter = prompt("Please guess a letter Player2").toLowerCase();
   },
 
 
   //iterate over word/array
   compareToWord: function(){
-    if(this.newWord.includes(this.letter)){
-      for(var i = 0; i<this.newWord.length; i++){
-        if(this.newWord[i] === this.letter){
-        this.displayDashes[i] = this.letter;
+    while(this.counterAttempts > 0){
+      if(this.newWord.includes(this.letter)){
+        for(var i = 0; i<this.newWord.length; i++){
+          if(this.newWord[i] === this.letter){
+          this.displayDashes[i] = this.letter;
+          }
         }
+        alert(this.displayDashes);
+          if(this.displayDashes.includes("-")){
+            hangman.guessLetter();
+            hangman.compareToWord();
+          }
+          else{
+            alert("You win!");
+          }
+      }else{
+        alert("sorry that letter is not in the word." + "\n" + this.displayDashes);
+        hangman.counterAttempts -= 1;
+        console.log(hangman.counterAttempts);
+        hangman.guessLetter();
+        hangman.compareToWord();
       }
-      alert(this.displayDashes);
-        if(this.displayDashes.includes("-")){
-          hangman.guessLetter();
-          hangman.compareToWord();
-        }
-        else{
-          alert("You win!");
-        }
-    }else{
-      alert("sorry that letter is not in the word." + "\n" + this.displayDashes);
-      hangman.counterAttempts -= 1;
-      console.log(hangman.counterAttempts);
-      hangman.guessLetter();
-      hangman.compareToWord();
+    }
+    if(this.counterAttempts === 0){
+    alert("You have no more attempts. Sorry you lose.");
     }
   },
 
