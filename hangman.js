@@ -10,9 +10,9 @@ var game = {
         var letter = playerWord[i];
         game.word.push(letter);
       }
-      for (var i = 0; i <= playerWord.length; i++){
-        var c = playerWord.charAt(i);
-        var c = "-";
+      for (var x = 0; x <= (playerWord.length - 1); x++){
+        var c = playerWord.charAt(x);
+        c = "-";
         game.secretWord.push(c);
       }
       alert("Your word is now a secret: " + game.secretWord);
@@ -27,27 +27,23 @@ var game = {
       }else if (playerGuess.length > 1)  {
         alert("You can't guess that! Please guess one letter.");
         }else if (game.word.indexOf(playerGuess) >= 0){
-          alert(playerGuess + " is in the word!");
           game.guesses.push(playerGuess);
           var g = game.word.indexOf(playerGuess);
           game.secretWord[g] = playerGuess;
-          alert(game.secretWord);
-          //something to reveal the secretWord letter by letter goes here
-          //game.secretWord.replace(/.*/,"-");
+          alert(playerGuess + " is in the word: " + game.secretWord);
         }else if (game.word.indexOf(playerGuess) === -1){
           alert(playerGuess + " is not in the secret word!");
           game.wrongGuesses.push(playerGuess);
         }
-    };
+      }
   }
-}
+};
+
+
 
 game.chooseWord();
 game.guessLetter();
-console.log(game.word);
-console.log(game.secretWord);
-console.log(game.guesses);
-console.log(game.wrongGuesses);
+
 
 
 /* psuedocode
