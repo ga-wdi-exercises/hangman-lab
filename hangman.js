@@ -4,12 +4,34 @@ var guesses = [];
 var incorrectGuesses;
 
 var word = prompt ("Please enter your secret word.");
-var  word = word.split("");
+var  splitWord = word.split("");
 
-  var getWord = prompt("Guess one letter.")
-  if(word.includes(getWord){
-  alert("You entered " + getWord);
+
+// function getWord(word){
+//  var dashes = "";
+//  for (var i=0, i < splitWord.length; i++){
+//    if(word.includes(splitWord[i])){
+//      letters[i] = letters[i]
+//    } else{ splitWord[i] = "-"}
+//    }
+//  }
+// return letters.join("")
+// }
+
+var letter = prompt("Please enter guessed letter.");
+
+if (letter.includes(splitWord)){
+   alert("You entered " + letter);
 }
+else {
+   alert("Nope! Try again!");
+}
+
+
+//   var getWord = prompt("Guess one letter.")
+//   if(word.includes(getWord){
+//   alert("You entered " + getWord);
+// }
 
 
 
