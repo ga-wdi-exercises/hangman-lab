@@ -25,9 +25,6 @@ var game = {
     while (this.gameInProgress === true) {
       var letter = prompt("What letter would you like to guess?");
 
-      console.log("right guesses before: " + this.rightGuesses);
-      console.log("word length: " + this.word.length);
-
       this.guesses.push(letter);
 
       this.lastGuess = letter;
@@ -45,8 +42,6 @@ var game = {
       if (this.guesses.includes(this.word[i])) {
         this.display = this.display + this.word[i] + " ";
 
-        console.log("the letter at this point is: " + this.word[i]);
-
         if (this.lastGuess === this.word[i]) {
           this.rightGuesses++;
         };
@@ -54,8 +49,6 @@ var game = {
       this.endGame();
       } else {
         this.display = this.display + "_ ";
-
-        console.log("wrong guesses: " + this.wrongGuesses);
 
         this.endGame();
       };
@@ -65,8 +58,6 @@ var game = {
       this.wrongGuesses++;
     };
 
-    console.log(this.display);
-    console.log("right guesses after: " + this.rightGuesses);
     this.guessLetter();
   },
   // End game if 5 wrong guesses or guesses.length === word.length
