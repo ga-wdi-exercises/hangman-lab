@@ -1,7 +1,29 @@
 ///console.log("welcome to hangman");
 alert("Welcome to hangman! It's a morbid game wherein you guess what word I'm thinking and every time you guess wrong, I add a disembodied appendage to a doomed man hanging on a gallows. If you guess the secret word before I collect ALL of his random body parts, you win!")
 
-var secretWord = prompt("Player 1, Please enter your secret word then scram.");
+var secretWord = prompt("Player 1, Please enter your secret word then scram."); */
+//this will result in a string ---
+//var game = []
+//var secretWord = "party" // erase this for testin only
+//var ScopeSet = this;
+var wordSplit = secretWord.split("");
+console.log(wordSplit);
+
+var playerGuess = prompt("Guess a letter.")
+
+function guessGame(){
+playerGuess();
+counter = 0;
+counter +-1
+while (counter < wordSplit.length){
+  if (playerGuess == wordSplit[counter]){
+    alert("You guessed right!")
+  } else {
+    alert("Nope! Try again!")
+  }
+}   //<<,ADRIAN! HI! Hey what is the convention for multiple end brackets? Like this or maybe }}} ?
+}
+// if they guess a word or more than one letter that will have to be null or something ---
 
 //in final example I would like to use Random.math to generate words from a (small) selection of words so there is not a "Player 1"
 
@@ -31,4 +53,4 @@ var secretWord = prompt("Player 1, Please enter your secret word then scram.");
 7. When player guesses wrong X many times - end the game.
 
 8. Ask to play again.
-/*
+*/
