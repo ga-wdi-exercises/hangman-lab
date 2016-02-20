@@ -5,16 +5,23 @@ var game = {
   display: "",
   wrongGuesses: 0,
   rightGuesses: 0,
+  word: "",
  // choose word -- make this into a prompt soon
-  word: "nick",
+  enterWord: function() {
+    this.word = prompt("What word would you like to play?");
+
+    this.splitWord();
+  },
 
   // Split word into an array
   splitWord: function() {
     this.letters = this.word.split("");
+
+    this.guessLetter();
   },
   // Take letter input & store input in guess array
   guessLetter: function() {
-    while (this.rightGuesses <= this.word.length) {
+    while (this.rightGuesses <= (this.word.length - 1) && this.wrongGuesses <= 5) {
       var letter = prompt("What letter would you like to guess?");
 
       console.log("right guesses before: " + this.rightGuesses);
@@ -27,7 +34,7 @@ var game = {
       this.checkLetter();
     };
 
-    if (this.rightGuesses === this.word.length) {
+    if (this.rightGuesses === (this.word.length - 1)) {
       this.endGame();
     };
   },
@@ -37,20 +44,24 @@ var game = {
       if (this.guesses.includes(this.word[i])) {
         this.display = this.display + this.word[i] + " ";
 
-        this.lastGuess = this.word[i];
+        console.log("the letter at this point is: " + this.word[i]);
 
-        console.log(this.lastGuess);
-
-        if (this.lastGuess.includes(this.word[i])) {
+        if (this.lastGuess === this.word[i]) {
           this.rightGuesses++;
         };
 
-        this.endGame();
+      this.endGame();
       } else {
         this.display = this.display + "_ ";
 
+        console.log("wrong guesses: " + this.wrongGuesses);
+
         this.endGame();
       };
+    };
+
+    if (this.lastGuess != this.word[i]) {
+      this.wrongGuesses++;
     };
 
     console.log(this.display);
@@ -60,12 +71,11 @@ var game = {
   // End game if 5 wrong guesses or guesses.length === word.length
   endGame: function() {
     if (this.wrongGuesses === 6) {
-      console.log("Nice try! You lost. The word was " + word);
-    } else if (this.letters.length === this.rightGueses) {
-      console.log("Nice! You won the game!");
+      alert("Nice try! You lost. The word was " + this.word);
+    } else if (this.letters.length === this.rightGuesses) {
+      alert("Nice! You won the game!");
     };
   }
 }
 
-game.splitWord();
-game.guessLetter();
+game.enterWord();
