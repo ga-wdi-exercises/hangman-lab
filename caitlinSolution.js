@@ -5,6 +5,7 @@ var game = {
   display: "",
   wrongGuesses: 0,
   rightGuesses: 0,
+  gameInProgress: true,
   word: "",
  // choose word -- make this into a prompt soon
   enterWord: function() {
@@ -21,7 +22,7 @@ var game = {
   },
   // Take letter input & store input in guess array
   guessLetter: function() {
-    while (this.rightGuesses <= (this.word.length - 1) && this.wrongGuesses <= 5) {
+    while (this.gameInProgress === true) {
       var letter = prompt("What letter would you like to guess?");
 
       console.log("right guesses before: " + this.rightGuesses);
@@ -70,12 +71,18 @@ var game = {
   },
   // End game if 5 wrong guesses or guesses.length === word.length
   endGame: function() {
-    if (this.wrongGuesses === 6) {
-      alert("Nice try! You lost. The word was " + this.word);
-    } else if (this.letters.length === this.rightGuesses) {
-      alert("Nice! You won the game!");
-    };
+      if (this.gameInProgress === true) {
+        if (this.wrongGuesses === 5) {
+          alert("Nice try! You lost. The word was " + this.word);
+
+          this.gameInProgress = false;
+        } else if (this.letters.length === this.rightGuesses) {
+          alert("Nice! You won the game!");
+
+          this.gameInProgress = false;
+      };
+    }
   }
-}
+};
 
 game.enterWord();
