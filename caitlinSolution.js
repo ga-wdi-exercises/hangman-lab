@@ -4,6 +4,7 @@ var game = {
   lastGuess: "",
   display: "",
   wrongGuesses: 0,
+  guessAccuracy: false,
   rightGuesses: 0,
   gameInProgress: true,
   word: "",
@@ -22,6 +23,8 @@ var game = {
   },
   // Take letter input & store input in guess array
   guessLetter: function() {
+    this.guessAccuracy = false;
+
     while (this.gameInProgress === true) {
       var letter = prompt("What letter would you like to guess?");
 
@@ -43,6 +46,8 @@ var game = {
         this.display = this.display + this.word[i] + " ";
 
         if (this.lastGuess === this.word[i]) {
+          this.guessAccuracy = true;
+
           this.rightGuesses++;
         };
 
@@ -54,16 +59,20 @@ var game = {
       };
     };
 
-    if (this.lastGuess != this.word[i]) {
+    if (this.guessAccuracy === false) {
       this.wrongGuesses++;
     };
+
+    console.log(this.display);
+
+    this.display = "";
 
     this.guessLetter();
   },
   // End game if 5 wrong guesses or guesses.length === word.length
   endGame: function() {
       if (this.gameInProgress === true) {
-        if (this.wrongGuesses === 5) {
+        if (this.wrongGuesses === 5 && this.guessAccuracy != true) {
           alert("Nice try! You lost. The word was " + this.word);
 
           this.gameInProgress = false;
@@ -72,7 +81,7 @@ var game = {
 
           this.gameInProgress = false;
       };
-    }
+    };
   }
 };
 
